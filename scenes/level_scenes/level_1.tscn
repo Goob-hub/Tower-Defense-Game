@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfouwonbyv71l"]
+
+[ext_resource type="PackedScene" uid="uid://bib3p8qapwwux" path="res://scenes/ui/in_game_ui/unit_summon_bar.tscn" id="1_inwed"]
+
+[node name="Level1" type="Node"]
+
+[node name="UnitSummonBar" parent="." instance=ExtResource("1_inwed")]
+
+[node name="PlayerUnitsLayer" type="Node2D" parent="." groups=["player_units_layer"]]
+
+[node name="EnemyUnitsLayer" type="Node2D" parent="." groups=["enemy_units_layer"]]
+
+[node name="Projectiles" type="Node2D" parent="." groups=["projectiles_layer"]]
