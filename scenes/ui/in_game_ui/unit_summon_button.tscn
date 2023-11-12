@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkgma7fjutj3f"]
+[gd_scene load_steps=3 format=3 uid="uid://bkgma7fjutj3f"]
 
 [ext_resource type="Script" path="res://scenes/ui/in_game_ui/unit_summon_button.gd" id="1_jc81y"]
-[ext_resource type="Texture2D" uid="uid://dj23arvwsfs2k" path="res://scenes/units/robo_spider/robo_spider.png" id="2_sutvh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppwxq"]
 bg_color = Color(0, 0.368627, 0.47451, 1)
@@ -18,23 +17,24 @@ offset_right = 60.0
 offset_bottom = 60.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ppwxq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="UnitImage" type="Sprite2D" parent="PanelContainer/VBoxContainer"]
-position = Vector2(22, 28)
-texture = ExtResource("2_sutvh")
-
-[node name="ManaContainer" type="Control" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="ManaCost" type="Label" parent="PanelContainer/ManaContainer"]
+[node name="UnitImage" type="Sprite2D" parent="PanelContainer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 50.0
-offset_top = 48.0
-offset_right = 90.0
-offset_bottom = 74.0
+position = Vector2(30, 30)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 2
+
+[node name="ManaCost" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "30
 "
 

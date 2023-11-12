@@ -4,7 +4,7 @@ extends Control
 @export var unit_image: Texture
 
 @onready var interact_button = %InteractButton
-@onready var sprite = $PanelContainer/UnitImage
+@onready var sprite = %UnitImage
 @onready var mana_cost_label = %ManaCost
 @onready var cooldown_timer = $CooldownTimer
 

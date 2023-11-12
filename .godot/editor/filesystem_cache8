@@ -1,5 +1,5 @@
 2897663ac9207bbfb36e6359e5c790e1
-::res://::1699744222
+::res://::1699802511
 icon.svg::CompressedTexture2D::9079454508422210789::1699631229::1699631239::1::::<><>::
 README.md::TextFile::-1::1699743961::0::1::::<><>::
 README.ru.md::TextFile::-1::1699632296::0::1::::<><>::
@@ -73,21 +73,31 @@ sprite_frames.gd::GDScript::-1::1699632297::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1699632297::0::1::::<><>::
 _animation_importer_base.gd::GDScript::-1::1699632296::0::1::::<><>::
 _importer_base.gd::GDScript::-1::1699632297::0::1::::<>EditorImportPlugin<>::
-::res://images/::1699722169
-::res://scenes/::1699721853
-::res://scenes/level_scenes/::1699722977
-level_1.tscn::PackedScene::2767520573249067015::1699722977::0::1::::<><>::uid://bib3p8qapwwux
+::res://assets/::1699798681
+::res://assets/dark_environment/::1699798682
+DARK Edition Tileset No background.png::CompressedTexture2D::8185036443782452968::1699798395::1699798682::1::::<><>::
+::res://resources/::1699801695
+tileset.tres::TileSet::5418238364084173193::1699801695::0::1::::<><>::uid://dou5mbwtfqo85::::res://assets/dark_environment/DARK Edition Tileset No background.png
+::res://scenes/::1699801878
+::res://scenes/game_objects/::1699801878
+::res://scenes/game_objects/game_camera/::1699804578
+game_camera.gd::GDScript::-1::1699802309::0::1::::<>Camera2D<>::
+game_camera.tscn::PackedScene::3371668527985757957::1699804578::0::1::::<><>::res://scenes/game_objects/game_camera/game_camera.gd
+::res://scenes/level_scenes/::1699804578
+level_1.tscn::PackedScene::2767520573249067015::1699804578::0::1::::<><>::uid://bib3p8qapwwux::::res://scenes/ui/in_game_ui/unit_summon_bar.tscn<>uid://cjgvug7c5iipl::::res://resources/tileset.tres<>uid://bobi5gt43lc5j::::res://scenes/game_objects/game_camera/game_camera.tscn
 ::res://scenes/ui/::1699719727
-::res://scenes/ui/in_game_ui/::1699743211
-unit_summon_bar.tscn::PackedScene::2951724431265815607::1699722977::0::1::::<><>::uid://bkgma7fjutj3f
-unit_summon_button.gd::GDScript::-1::1699722387::0::1::::<>Control<>::
-unit_summon_button.tscn::PackedScene::3101425679418611481::1699743211::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_button.gd<>uid://dj23arvwsfs2k::::res://scenes/units/robo_spider/robo_spider.png
+::res://scenes/ui/in_game_ui/::1699804578
+unit_summon_bar.gd::GDScript::-1::1699744620::0::1::::<>CanvasLayer<>::
+unit_summon_bar.tscn::PackedScene::2951724431265815607::1699804578::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_bar.gd<>uid://bkgma7fjutj3f::::res://scenes/ui/in_game_ui/unit_summon_button.tscn<>uid://bapa1g0b8e12u::::res://scenes/units/dark_flame/dark_flame.tscn<>uid://maqkbxvgs823::::res://scenes/units/dark_flame/dark_flame.png<>uid://d2b32mutetjfs::::res://scenes/units/robo_spider/robo_spider.tscn<>uid://y2s1jhw4m0hl::::res://scenes/units/robo_spider/robo_spider.png
+unit_summon_button.gd::GDScript::-1::1699744521::0::1::::<>Control<>::
+unit_summon_button.tscn::PackedScene::3101425679418611481::1699804578::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_button.gd
 ::res://scenes/units/::1699721906
-::res://scenes/units/dark_flame/::1699722166
-dark_flame.png::CompressedTexture2D::843255542496461190::1699646203::1699722166::1::::<><>::
-dark_flame.tscn::PackedScene::2417433134495458978::1699721906::0::1::::<><>::uid://ciueasvcyruc0
+::res://scenes/units/dark_flame/::1699804578
+dark_flame.png::CompressedTexture2D::843255542496461190::1699802879::1699802879::1::::<><>::
+dark_flame.tscn::PackedScene::2417433134495458978::1699804578::0::1::::<><>::uid://ciueasvcyruc0::::res://scenes/units/dark_flame/flame dude dark.png
 flame dude dark.png::CompressedTexture2D::5375883517527552181::1699640880::1699721906::1::::<><>::
-::res://scenes/units/robo_spider/::1699722915
-Blinding Spider.png::CompressedTexture2D::1337127000457771769::1699642437::1699721900::1::::<><>::
-robo_spider.png::CompressedTexture2D::7848400845340366384::1699722915::1699722915::1::::<><>::
-robo_spider.tscn::PackedScene::9058174161338796312::1699721900::0::1::::<><>::uid://tbyj0altp4wr
+::res://scenes/units/robo_spider/::1699804764
+Blinding Spider.json::JSON::-1::1699804764::0::1::::<><>::
+Blinding Spider.png::CompressedTexture2D::1337127000457771769::1699804764::1699804764::1::::<><>::
+robo_spider.png::CompressedTexture2D::1741410267746330893::1699802908::1699802908::1::::<><>::
+robo_spider.tscn::PackedScene::9058174161338796312::1699804578::0::1::::<><>::uid://tbyj0altp4wr::::res://scenes/units/robo_spider/Blinding Spider.png

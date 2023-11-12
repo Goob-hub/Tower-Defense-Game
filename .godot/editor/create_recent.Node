@@ -1,5 +1,8 @@
-VBoxContainer
+Marker2D
+Camera2D
+TileMap
 MarginContainer
+VBoxContainer
 Node2D
 Timer
 Button

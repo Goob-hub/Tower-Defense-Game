@@ -1,1 +1,12 @@
+res://scenes/level_scenes/level_1.tscn
+res://scenes/ui/in_game_ui/unit_summon_bar.tscn
 res://scenes/ui/in_game_ui/unit_summon_button.tscn
+res://scenes/units/dark_flame/dark_flame.tscn
+res://scenes/units/robo_spider/robo_spider.tscn
+res://resources/tilemap.tres
+res://resources/tileset.tres
+res://scenes/game_objects/game_camera.tscn
+res://scenes/game_objects/game_camera.gd
+res://scenes/game_camera/game_camera.tscn
+res://scenes/game_objects/game_camera/game_camera.tscn
+res://scenes/game_objects/game_camera/game_camera.gd
