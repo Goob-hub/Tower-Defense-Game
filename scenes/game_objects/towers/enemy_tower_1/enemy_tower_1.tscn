@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxdj5piscrt32"]
+
+[ext_resource type="Texture2D" uid="uid://dcqjvo1tcoe6q" path="res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png" id="1_7p5cb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytpqj"]
+radius = 9.0
+height = 100.0
+
+[node name="EnemyTower1" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="EnemyUnitSpawn" type="Marker2D" parent="." groups=["enemy_unit_spawn"]]
+position = Vector2(-19.5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.5, -50)
+texture = ExtResource("1_7p5cb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -51)
+shape = SubResource("CapsuleShape2D_ytpqj")

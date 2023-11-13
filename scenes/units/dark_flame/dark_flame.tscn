@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bapa1g0b8e12u"]
+[gd_scene load_steps=11 format=3 uid="uid://bapa1g0b8e12u"]
 
+[ext_resource type="Script" path="res://scenes/units/dark_flame/dark_flame.gd" id="1_2e7oo"]
 [ext_resource type="Texture2D" uid="uid://ciueasvcyruc0" path="res://scenes/units/dark_flame/flame dude dark.png" id="1_g10o7"]
 
 [sub_resource type="Animation" id="Animation_tm6jl"]
 length = 1.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -131,6 +133,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_pqk5t"]
 length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -399,14 +402,15 @@ radius = 6.08276
 
 [node name="FlameEnemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_2e7oo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(19, -28)
+position = Vector2(20, -29)
 texture = ExtResource("1_g10o7")
 hframes = 7
 vframes = 6
-frame = 4
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -414,9 +418,9 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "",
 "o_name": "",
 "only_visible": true,
-"op_exp": true,
+"op_exp": false,
 "player": "AnimationPlayer",
-"source": "C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition (Use this one)/DARK Edition/Sprites/flame dude dark.aseprite"
+"source": "C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Dark-flame/flame dude dark.aseprite"
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -428,3 +432,4 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_4ja7y")
+disabled = true

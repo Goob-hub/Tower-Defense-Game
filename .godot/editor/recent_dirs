@@ -1,3 +1,12 @@
+res://scenes/components/attack_component
+res://scenes/components/hitbox_component
+res://scenes/components/velocity_component
+res://scenes/components
+res://scenes/game_objects/towers/player_tower
+C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Robo-spider
+C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Dark-flame
+C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites
+res://scenes/game_objects/towers/enemy_tower_1
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites/Blinding Spider
 res://scenes/game_objects
 res://resources

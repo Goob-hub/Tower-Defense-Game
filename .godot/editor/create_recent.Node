@@ -1,12 +1,16 @@
+CollisionShape2D
+Area2D
+Node
 Marker2D
+Node2D
+Sprite2D
+StaticBody2D
 Camera2D
 TileMap
 MarginContainer
 VBoxContainer
-Node2D
 Timer
 Button
-Sprite2D
 Label
 Control
 PanelContainer
@@ -14,8 +18,6 @@ Panel
 Node3D
 HBoxContainer
 CanvasLayer
-CollisionShape2D
 AnimationPlayer
 AnimationTree
 CharacterBody2D
-Node

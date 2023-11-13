@@ -39,6 +39,14 @@ drag={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player_units"
+2d_physics/layer_2="enemy_units"
+2d_physics/layer_3="towers"
+2d_physics/layer_4="player_unit_attacks"
+2d_physics/layer_5="enemy_unit_attacks"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -10,8 +10,10 @@ extends Control
 
 var cooldown: float = 10
 var mana_cost: float = 30
+var unit_spawn_position
 
 func _ready():
+	unit_spawn_position = get_tree().get_first_node_in_group("player_unit_spawn").global_position
 	sprite.texture = unit_image
 	mana_cost_label.text = str(mana_cost)
 	cooldown_timer.wait_time = cooldown
@@ -26,7 +28,8 @@ func on_timer_timeout():
 
 func on_button_pressed():
 	var unit_instance = unit_scene.instantiate()
-	unit_instance.global_position = Vector2(100, 100)
+	unit_instance.global_position = unit_spawn_position
+	unit_instance.direction = Vector2.RIGHT
 	get_tree().get_first_node_in_group("player_units_layer").add_child(unit_instance)
 	
 	interact_button.disabled = true
