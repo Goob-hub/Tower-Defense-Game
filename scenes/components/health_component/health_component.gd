@@ -3,7 +3,7 @@ class_name HealthComponent
 
 signal dead
 signal damaged
-signal healed
+signal healed(amount)
 
 @export var max_health: float
 
@@ -22,22 +22,11 @@ func damage(damage_amount: float):
 	current_health = maxf(0.0, current_health - damage_amount)
 	
 	if(current_health == 0):
-		emit_dead_signal()
+		dead.emit()
 	else:
-		emit_damaged_signal()
+		damaged.emit()
 
 
 func heal(heal_amount: float):
 	current_health = minf(max_health, current_health + heal_amount)
-
-
-func emit_dead_signal():
-	dead.emit()
-
-
-func emit_damaged_signal():
-	damaged.emit()
-
-
-func emit_healed_signal():
-	healed.emit()
+	healed.emit(heal_amount)

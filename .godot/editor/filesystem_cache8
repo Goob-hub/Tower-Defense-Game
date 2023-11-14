@@ -1,5 +1,5 @@
 2897663ac9207bbfb36e6359e5c790e1
-::res://::1699893700
+::res://::1699974634
 icon.svg::CompressedTexture2D::9079454508422210789::1699631229::1699631239::1::::<><>::
 README.md::TextFile::-1::1699743961::0::1::::<><>::
 README.ru.md::TextFile::-1::1699632296::0::1::::<><>::
@@ -78,43 +78,50 @@ _importer_base.gd::GDScript::-1::1699632297::0::1::::<>EditorImportPlugin<>::
 forest_bg.png::CompressedTexture2D::2960824488674735436::1699889966::1699889966::1::::<><>::
 ::res://assets/dark_environment/::1699798682
 DARK Edition Tileset No background.png::CompressedTexture2D::8185036443782452968::1699798395::1699798682::1::::<><>::
-::res://resources/::1699889302
-tileset.tres::TileSet::5418238364084173193::1699889302::0::1::::<><>::uid://dou5mbwtfqo85::::res://assets/dark_environment/DARK Edition Tileset No background.png
-::res://scenes/::1699893536
-::res://scenes/components/::1699893628
-::res://scenes/components/attack_component/::1699893629
-attack_component.tscn::PackedScene::2947384727878919807::1699893629::0::1::::<><>::
-::res://scenes/components/health_component/::1699893650
-health_component.gd::GDScript::-1::1699893650::0::1::::HealthComponent<>Node<>::
-health_component.tscn::PackedScene::9132813722630437672::1699893650::0::1::::<><>::res://scenes/components/health_component/health_component.gd
-::res://scenes/components/hitbox_component/::1699893615
-hitbox_component.tscn::PackedScene::8344146330768034488::1699893615::0::1::::<><>::
-::res://scenes/components/velocity_component/::1699893601
-velocity_component.tscn::PackedScene::3117038650062848652::1699893601::0::1::::<><>::
+::res://resources/::1699969280
+tileset.tres::TileSet::5418238364084173193::1699969280::0::1::::<><>::uid://dou5mbwtfqo85::::res://assets/dark_environment/DARK Edition Tileset No background.png
+::res://scenes/::1699975431
+::res://scenes/classes/::1699975431
+attack.gd::GDScript::-1::1699975559::0::1::::Attack<>Area2D<>::
+::res://scenes/components/::1699975336
+::res://scenes/components/attack_manager_component/::1699975174
+attack_manager_component.gd::GDScript::-1::1699975456::0::1::::<>Node<>::
+attack_manager_component.tscn::PackedScene::2947384727878919807::1699975572::0::1::::<><>::res://scenes/components/attack_manager_component/attack_manager_component.gd
+::res://scenes/components/health_component/::1699973346
+health_component.gd::GDScript::-1::1699969521::0::1::::HealthComponent<>Node<>::
+health_component.tscn::PackedScene::9132813722630437672::1699973346::0::1::::<><>::res://scenes/components/health_component/health_component.gd
+::res://scenes/components/hitbox_component/::1699975185
+hitbox_component.gd::GDScript::-1::1699975185::0::1::::Hitbox_component<>Area2D<>::
+hitbox_component.tscn::PackedScene::8344146330768034488::1699975185::0::1::::<><>::res://scenes/components/hitbox_component/hitbox_component.gd
+::res://scenes/components/velocity_component/::1699973346
+velocity_component.gd::GDScript::-1::1699969752::0::1::::VelocityComponent<>Node<>::
+velocity_component.tscn::PackedScene::3117038650062848652::1699973346::0::1::::<><>::res://scenes/components/velocity_component/velocity_component.gd
 ::res://scenes/game_objects/::1699889594
 ::res://scenes/game_objects/game_camera/::1699893002
 game_camera.gd::GDScript::-1::1699802309::0::1::::<>Camera2D<>::
 game_camera.tscn::PackedScene::3371668527985757957::1699893002::0::1::::<><>::res://scenes/game_objects/game_camera/game_camera.gd
 ::res://scenes/game_objects/towers/::1699892335
 ::res://scenes/game_objects/towers/enemy_tower_1/::1699893002
-enemy_tower_1.tscn::PackedScene::6393978732105060231::1699893002::0::1::::<><>::uid://dcqjvo1tcoe6q::::res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png
+enemy_tower_1.tscn::PackedScene::6393978732105060231::1699893002::0::1::::<><>::uid://dcqjvo1tcoe6q
 Tower-1.png::CompressedTexture2D::7333254513385543854::1699889615::1699889615::1::::<><>::
 ::res://scenes/game_objects/towers/player_tower/::1699893003
-player_tower.tscn::PackedScene::8791828021844584934::1699893003::0::1::::<><>::uid://dcqjvo1tcoe6q::::res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png
-::res://scenes/level_scenes/::1699893324
-level_1.tscn::PackedScene::2767520573249067015::1699893324::0::1::::<><>::uid://bigil13r738ce::::res://assets/backgrounds/forest_bg.png<>uid://bib3p8qapwwux::::res://scenes/ui/in_game_ui/unit_summon_bar.tscn<>uid://cjgvug7c5iipl::::res://resources/tileset.tres<>uid://bobi5gt43lc5j::::res://scenes/game_objects/game_camera/game_camera.tscn<>uid://cxdj5piscrt32::::res://scenes/game_objects/towers/enemy_tower_1/enemy_tower_1.tscn<>uid://dxi3eghc5hi6q::::res://scenes/game_objects/towers/player_tower/player_tower.tscn
+player_tower.tscn::PackedScene::8791828021844584934::1699893003::0::1::::<><>::uid://dcqjvo1tcoe6q
+::res://scenes/level_scenes/::1699973346
+level_1.tscn::PackedScene::2767520573249067015::1699973346::0::1::::<><>::uid://bigil13r738ce::::res://assets/backgrounds/forest_bg.png<>uid://bib3p8qapwwux::::res://scenes/ui/in_game_ui/unit_summon_bar.tscn<>uid://cjgvug7c5iipl::::res://resources/tileset.tres<>uid://bobi5gt43lc5j::::res://scenes/game_objects/game_camera/game_camera.tscn<>uid://cxdj5piscrt32::::res://scenes/game_objects/towers/enemy_tower_1/enemy_tower_1.tscn<>uid://dxi3eghc5hi6q::::res://scenes/game_objects/towers/player_tower/player_tower.tscn
 ::res://scenes/ui/::1699719727
-::res://scenes/ui/in_game_ui/::1699893324
+::res://scenes/ui/in_game_ui/::1699974635
 unit_summon_bar.gd::GDScript::-1::1699744620::0::1::::<>CanvasLayer<>::
-unit_summon_bar.tscn::PackedScene::2951724431265815607::1699893324::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_bar.gd<>uid://bkgma7fjutj3f::::res://scenes/ui/in_game_ui/unit_summon_button.tscn<>uid://bapa1g0b8e12u::::res://scenes/units/dark_flame/dark_flame.tscn<>uid://maqkbxvgs823::::res://scenes/units/dark_flame/dark_flame.png<>uid://d2b32mutetjfs::::res://scenes/units/robo_spider/robo_spider.tscn<>uid://y2s1jhw4m0hl::::res://scenes/units/robo_spider/robo_spider.png
-unit_summon_button.gd::GDScript::-1::1699893002::0::1::::<>Control<>::
-unit_summon_button.tscn::PackedScene::3101425679418611481::1699893324::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_button.gd
+unit_summon_bar.tscn::PackedScene::2951724431265815607::1699899179::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_bar.gd<>uid://bkgma7fjutj3f
+unit_summon_button.gd::GDScript::-1::1699973359::0::1::::<>Control<>::
+unit_summon_button.tscn::PackedScene::3101425679418611481::1699974635::0::1::::<><>::res://scenes/ui/in_game_ui/unit_summon_button.gd
 ::res://scenes/units/::1699721906
-::res://scenes/units/dark_flame/::1699893402
+::res://scenes/units/dark_flame/::1699969456
+dark_flame.gd::GDScript::-1::1699969427::0::1::::<>CharacterBody2D<>::
 dark_flame.png::CompressedTexture2D::843255542496461190::1699802879::1699802879::1::::<><>::
-dark_flame.tscn::PackedScene::2417433134495458978::1699893402::0::1::::<><>::uid://ciueasvcyruc0::::res://scenes/units/dark_flame/flame dude dark.png
+dark_flame.tscn::PackedScene::2417433134495458978::1699969456::0::1::::<><>::res://scenes/units/dark_flame/dark_flame.gd<>uid://ciueasvcyruc0::::res://scenes/units/dark_flame/flame dude dark.png<>uid://d3eadwqxjq0rs::::res://scenes/components/health_component/health_component.tscn<>uid://bkn6f24li28ei::::res://scenes/components/velocity_component/velocity_component.tscn<>uid://dq474u3ygshqm::::res://scenes/components/hitbox_component/hitbox_component.tscn
 flame dude dark.png::CompressedTexture2D::5375883517527552181::1699893399::1699893399::1::::<><>::
-::res://scenes/units/robo_spider/::1699893676
+::res://scenes/units/robo_spider/::1699974634
 Blinding Spider.png::CompressedTexture2D::1337127000457771769::1699893322::1699893322::1::::<><>::
+robo_spider.gd::GDScript::-1::1699973336::0::1::::<>CharacterBody2D<>::
 robo_spider.png::CompressedTexture2D::1741410267746330893::1699802908::1699802908::1::::<><>::
-robo_spider.tscn::PackedScene::9058174161338796312::1699893676::0::1::::<><>::uid://tbyj0altp4wr::::res://scenes/units/robo_spider/Blinding Spider.png<>uid://d3eadwqxjq0rs::::res://scenes/components/health_component/health_component.tscn<>uid://bkn6f24li28ei::::res://scenes/components/velocity_component/velocity_component.tscn<>uid://dq474u3ygshqm::::res://scenes/components/hitbox_component/hitbox_component.tscn<>uid://bh8y84g5a8tkx::::res://scenes/components/attack_component/attack_component.tscn
+robo_spider.tscn::PackedScene::9058174161338796312::1699975537::0::1::::<><>::uid://tbyj0altp4wr::::res://scenes/units/robo_spider/Blinding Spider.png<>res://scenes/units/robo_spider/robo_spider.gd<>uid://d3eadwqxjq0rs::::res://scenes/components/health_component/health_component.tscn<>uid://bkn6f24li28ei::::res://scenes/components/velocity_component/velocity_component.tscn<>uid://bh8y84g5a8tkx::::res://scenes/components/attack_manager_component/attack_manager_component.tscn<>uid://dq474u3ygshqm::::res://scenes/components/hitbox_component/hitbox_component.tscn

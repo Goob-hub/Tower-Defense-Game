@@ -1,16 +1,16 @@
 extends Area2D
 class_name Hitbox_component
 
+@export var health_component: HealthComponent
+
 func _ready():
 	self.area_entered.connect(on_area_entered)
 
 
 func on_area_entered(other_area: Area2D):
-	pass
+	print(other_area)
+	if(other_area is Attack):
+		health_component.damage(other_area.damage)
+		print(other_area.damage)
+		print(health_component.current_health)
 
-
-func set_collision_detection(unit_type: String):
-	if(unit_type == "player"):
-		self.set_collision_mask_value(5, true)
-	elif(unit_type == "enemy"):
-		self.set_collision_mask_value(4, true)

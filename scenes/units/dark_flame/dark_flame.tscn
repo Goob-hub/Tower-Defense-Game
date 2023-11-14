@@ -1,7 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bapa1g0b8e12u"]
+[gd_scene load_steps=15 format=3 uid="uid://bapa1g0b8e12u"]
 
 [ext_resource type="Script" path="res://scenes/units/dark_flame/dark_flame.gd" id="1_2e7oo"]
 [ext_resource type="Texture2D" uid="uid://ciueasvcyruc0" path="res://scenes/units/dark_flame/flame dude dark.png" id="1_g10o7"]
+[ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="2_i1k7t"]
+[ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_1ea0v"]
+[ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_7k51b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vb0n"]
+size = Vector2(18, 25)
 
 [sub_resource type="Animation" id="Animation_tm6jl"]
 length = 1.5
@@ -400,9 +406,25 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ja7y"]
 radius = 6.08276
 
-[node name="FlameEnemy" type="CharacterBody2D"]
+[node name="DarkFlame" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "velocity_component", "hit_box_component")]
 scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
+health_component = NodePath("HealthComponent")
+velocity_component = NodePath("VelocityComponent")
+hit_box_component = NodePath("HitboxComponent")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_i1k7t")]
+max_health = 20.0
+
+[node name="VelocityComponent" parent="." instance=ExtResource("3_1ea0v")]
+mov_speed = 60.0
+acceleration = 15.0
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_7k51b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(1, -12.5)
+shape = SubResource("RectangleShape2D_0vb0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -410,7 +432,7 @@ position = Vector2(20, -29)
 texture = ExtResource("1_g10o7")
 hframes = 7
 vframes = 6
-frame = 1
+frame = 29
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -424,7 +446,6 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_uqbld")
 }

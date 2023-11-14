@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://bh8y84g5a8tkx"]
+[gd_scene load_steps=2 format=3 uid="uid://v5aggwtsq0gt"]
 
-[node name="AttackComponent" type="Node"]
+[ext_resource type="Script" path="res://scenes/components/attack_component/attack_component.gd" id="1_hu37e"]
+
+[node name="AttackComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_hu37e")

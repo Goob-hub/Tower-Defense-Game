@@ -1,13 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2b32mutetjfs"]
+[gd_scene load_steps=21 format=3 uid="uid://d2b32mutetjfs"]
 
 [ext_resource type="Texture2D" uid="uid://tbyj0altp4wr" path="res://scenes/units/robo_spider/Blinding Spider.png" id="1_fh5gm"]
 [ext_resource type="Script" path="res://scenes/units/robo_spider/robo_spider.gd" id="1_of7uc"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="1_ubm1l"]
 [ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_eahyq"]
+[ext_resource type="PackedScene" uid="uid://bh8y84g5a8tkx" path="res://scenes/components/attack_manager_component/attack_manager_component.tscn" id="2_x3e14"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_ic2u6"]
-[ext_resource type="PackedScene" uid="uid://bh8y84g5a8tkx" path="res://scenes/components/attack_component/attack_component.tscn" id="4_1adkq"]
+[ext_resource type="PackedScene" uid="uid://v5aggwtsq0gt" path="res://scenes/components/attack_component/attack_component.tscn" id="4_1adkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48cg7"]
+size = Vector2(50, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq2ey"]
+size = Vector2(50, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30q54"]
+size = Vector2(16, 19)
 
 [sub_resource type="Animation" id="Animation_npuaf"]
 length = 0.5
@@ -199,6 +207,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [15, 16, 15, 16]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackComponent/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_td7kv"]
@@ -470,10 +490,26 @@ tracks/4/keys = {
 "values": [6, 7, 8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_y0fps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackComponent/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xa00f"]
 _data = {
 "Idle": SubResource("Animation_npuaf"),
 "Image": SubResource("Animation_6ufuc"),
+"RESET": SubResource("Animation_y0fps"),
 "blind": SubResource("Animation_r6hnk"),
 "death": SubResource("Animation_td7kv"),
 "hit": SubResource("Animation_roqv7"),
@@ -484,31 +520,52 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_6c2xe"]
 radius = 5.02494
 
-[node name="RoboSpider" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "velocity_component", "hit_box_component")]
+[node name="RoboSpider" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_of7uc")
-health_component = NodePath("HealthComponent")
-velocity_component = NodePath("VelocityComponent")
-hit_box_component = NodePath("HitboxComponent")
+
+[node name="AttackRangeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="AttackRangeArea"]
+unique_name_in_owner = true
+position = Vector2(41, -34)
+shape = SubResource("RectangleShape2D_48cg7")
+
+[node name="AttackComponent" parent="." instance=ExtResource("4_1adkq")]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+damage = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+position = Vector2(41, -34)
+shape = SubResource("RectangleShape2D_mq2ey")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_ic2u6")]
+collision_mask = 16
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_30q54")
+
+[node name="AttackManagerComponent" parent="." node_paths=PackedStringArray("attack_component", "attack_range_area") instance=ExtResource("2_x3e14")]
+attack_component = NodePath("../AttackComponent")
+attack_range_area = NodePath("../AttackRangeArea")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ubm1l")]
 max_health = 10.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_eahyq")]
-mov_speed = 40.0
-acceleration = 10.0
-
-[node name="HitboxComponent" parent="." instance=ExtResource("3_ic2u6")]
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_30q54")
-
-[node name="AttackComponent" parent="." instance=ExtResource("4_1adkq")]
+base_mov_speed = 300.0
+base_acceleration = 100.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_xa00f")
 }
@@ -524,7 +581,7 @@ position = Vector2(8, -16)
 texture = ExtResource("1_fh5gm")
 hframes = 5
 vframes = 5
-frame = 5
+frame = 15
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
