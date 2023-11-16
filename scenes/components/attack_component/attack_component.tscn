@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://scenes/components/attack_component/attack_component.gd" id="1_hu37e"]
 
 [node name="AttackComponent" type="Area2D"]
+modulate = Color(1, 0.403922, 0.0862745, 1)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_hu37e")
+
+[node name="AttackRateTimer" type="Timer" parent="."]

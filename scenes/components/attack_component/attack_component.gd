@@ -1,1 +1,36 @@
 extends Attack
+class_name AttackComponent
+
+@onready var attack_rate_timer = $AttackRateTimer
+@export var attack_shape: CollisionShape2D
+
+var wait_time
+
+func _ready():
+	attack_shape.disabled = true
+	
+	if(self.attacks_per_second <= 0):
+		return
+	
+	wait_time = 1 / self.attacks_per_second
+	
+	attack_rate_timer.timeout.connect(on_timer_timeout)
+
+
+func on_timer_timeout():
+	if(attack_shape.disabled == false):
+		attack_shape.set_deferred("disabled", true)
+	else:
+		attack_shape.set_deferred("disabled", false)
+
+
+func start_attacking():
+	attack_shape.set_deferred("disabled", false)
+	attack_rate_timer.wait_time = wait_time
+	attack_rate_timer.start()
+
+
+func stop_attacking():
+	attack_shape.set_deferred("disabled", true)
+	attack_rate_timer.wait_time = wait_time
+	attack_rate_timer.stop()

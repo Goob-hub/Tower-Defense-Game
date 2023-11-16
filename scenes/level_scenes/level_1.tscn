@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfouwonbyv71l"]
+[gd_scene load_steps=10 format=3 uid="uid://bfouwonbyv71l"]
 
 [ext_resource type="Texture2D" uid="uid://bigil13r738ce" path="res://assets/backgrounds/forest_bg.png" id="1_bw2n1"]
 [ext_resource type="PackedScene" uid="uid://bib3p8qapwwux" path="res://scenes/ui/in_game_ui/unit_summon_bar.tscn" id="1_inwed"]
 [ext_resource type="TileSet" uid="uid://cjgvug7c5iipl" path="res://resources/tileset.tres" id="2_6hqfj"]
+[ext_resource type="PackedScene" uid="uid://d4hiayrbnts1o" path="res://scenes/managers/enemy_manager/enemy_manager.tscn" id="2_ri2ej"]
+[ext_resource type="PackedScene" uid="uid://d2b32mutetjfs" path="res://scenes/units/robo_spider/robo_spider.tscn" id="3_bra6w"]
 [ext_resource type="PackedScene" uid="uid://bobi5gt43lc5j" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="3_qad64"]
 [ext_resource type="PackedScene" uid="uid://cxdj5piscrt32" path="res://scenes/game_objects/towers/enemy_tower_1/enemy_tower_1.tscn" id="4_200oy"]
+[ext_resource type="PackedScene" uid="uid://bapa1g0b8e12u" path="res://scenes/units/dark_flame/dark_flame.tscn" id="4_agkpw"]
 [ext_resource type="PackedScene" uid="uid://dxi3eghc5hi6q" path="res://scenes/game_objects/towers/player_tower/player_tower.tscn" id="6_lhkfk"]
 
 [node name="Level1" type="Node"]
+
+[node name="UnitSummonBar" parent="." instance=ExtResource("1_inwed")]
+
+[node name="EnemyManager" parent="." instance=ExtResource("2_ri2ej")]
+enemies = Array[PackedScene]([ExtResource("3_bra6w"), ExtResource("4_agkpw")])
+
+[node name="GameCamera" parent="." instance=ExtResource("3_qad64")]
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
 
@@ -15,11 +25,6 @@
 position = Vector2(726.5, 145)
 scale = Vector2(3.0039, 2.17341)
 texture = ExtResource("1_bw2n1")
-
-[node name="UnitSummonBar" parent="." instance=ExtResource("1_inwed")]
-
-[node name="GameCamera" parent="." instance=ExtResource("3_qad64")]
-position = Vector2(361, 220)
 
 [node name="LeftCameraBound" type="Marker2D" parent="." groups=["left_bound"]]
 position = Vector2(-9, 316)

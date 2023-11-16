@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh2t45r00cxa1"]
+
+[ext_resource type="Script" path="res://scenes/components/attack_range_component/attack_range_component.gd" id="1_nx1wm"]
+
+[node name="AttackRangeComponent" type="Area2D"]
+modulate = Color(0.235294, 0.27451, 1, 1)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_nx1wm")
