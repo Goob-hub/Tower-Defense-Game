@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bibqc75j1r47"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/tower_launchers/arrow_launcher.gd" id="1_pctgm"]
+[ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="2_v6v7u"]
+
+[node name="ArrowLauncher" type="Node2D"]
+script = ExtResource("1_pctgm")
+rotation_speed = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -17)
+scale = Vector2(0.277344, 0.269531)
+texture = ExtResource("2_v6v7u")
+
+[node name="FireRateTimer" type="Timer" parent="."]

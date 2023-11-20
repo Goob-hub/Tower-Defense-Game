@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://6l3q4ik32nkn"]
+
+[ext_resource type="Script" path="res://scenes/ui/in_game_ui/arrow_fuel_guage.gd" id="1_nntm6"]
+
+[node name="ArrowFuelGuage" type="ProgressBar"]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 1.0
+value = 0.5
+show_percentage = false
+script = ExtResource("1_nntm6")

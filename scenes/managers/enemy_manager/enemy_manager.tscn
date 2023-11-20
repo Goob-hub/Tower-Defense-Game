@@ -4,5 +4,7 @@
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_ofatr")
+max_time_between_summons = 3.0
+min_time_between_summons = 1.0
 
 [node name="Timer" type="Timer" parent="."]

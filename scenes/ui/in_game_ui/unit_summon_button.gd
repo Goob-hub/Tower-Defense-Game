@@ -8,7 +8,7 @@ extends Control
 @onready var mana_cost_label = %ManaCost
 @onready var cooldown_timer = $CooldownTimer
 
-var cooldown: float = 10
+var cooldown: float = 3
 var mana_cost: float = 30
 var unit_spawn_position
 

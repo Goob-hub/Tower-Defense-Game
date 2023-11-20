@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bam4gnoua15vg"]
+
+[ext_resource type="Script" path="res://scenes/ui/in_game_ui/game_hud.gd" id="1_2o37h"]
+[ext_resource type="PackedScene" uid="uid://bib3p8qapwwux" path="res://scenes/ui/in_game_ui/unit_summon_bar.tscn" id="1_5p8bl"]
+[ext_resource type="PackedScene" uid="uid://6l3q4ik32nkn" path="res://scenes/ui/in_game_ui/arrow_fuel_guage.tscn" id="3_f0hha"]
+
+[node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_2o37h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="UnitSummonBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_5p8bl")]
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="FireTowerLauncher" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" groups=["start_launcher_button"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Arrows: OFF"
+
+[node name="ArrowFuelGuage" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_f0hha")]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+value = 1.0
+show_percentage = true

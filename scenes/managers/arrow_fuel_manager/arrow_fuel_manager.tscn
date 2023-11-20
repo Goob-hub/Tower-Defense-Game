@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhiyojierd2ns"]
+
+[ext_resource type="Script" path="res://scenes/managers/arrow_fuel_manager/arrow_fuel_manager.gd" id="1_2icy3"]
+
+[node name="ArrowFuelManager" type="Node" groups=["arrow_fuel_manager"]]
+script = ExtResource("1_2icy3")
+
+[node name="Timer" type="Timer" parent="."]

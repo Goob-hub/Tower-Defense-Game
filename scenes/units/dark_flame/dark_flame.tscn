@@ -500,7 +500,6 @@ scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("2_lgo63")]
-visible = false
 attack_shape = NodePath("Attack")
 damage = 10.0
 attacks_per_second = 5.0
@@ -512,7 +511,6 @@ shape = SubResource("CapsuleShape2D_cch5y")
 disabled = true
 
 [node name="AttackRangeComponent" parent="." node_paths=PackedStringArray("attack_range_shape") instance=ExtResource("3_iw8wr")]
-visible = false
 attack_range_shape = NodePath("AttackRange")
 
 [node name="AttackRange" type="CollisionShape2D" parent="AttackRangeComponent"]
@@ -520,7 +518,6 @@ position = Vector2(51, -26)
 shape = SubResource("RectangleShape2D_qaksm")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("4_7k51b")]
-visible = false
 health_component = NodePath("../HealthComponent")
 hit_box_shape = NodePath("HitBox")
 

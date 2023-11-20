@@ -20,11 +20,11 @@ func accelerate_in_direction(direction: Vector2):
 	velocity = velocity.lerp(target_velocity, 1 - exp(-get_process_delta_time() * altering_acceleration))
 
 
-func move(character_body: Node2D):
-	character_body.velocity = velocity
-	character_body.move_and_slide()
+func move(body):
+	body.velocity = velocity
+	body.move_and_slide()
 	#Re-setting the velocity here in the script because move and slide alters the character velocity
-	velocity = character_body.velocity
+	velocity = body.velocity
 
 
 func stop_moving():

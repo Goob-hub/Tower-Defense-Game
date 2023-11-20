@@ -1,13 +1,16 @@
 extends Attack
 class_name AttackComponent
 
-@onready var attack_rate_timer = $AttackRateTimer
 @export var attack_shape: CollisionShape2D
+@export var disable_on_ready: bool = true
+
+@onready var attack_rate_timer = $AttackRateTimer
 
 var wait_time
 
 func _ready():
-	attack_shape.disabled = true
+	if(disable_on_ready):
+		attack_shape.disabled = true
 	
 	if(self.attacks_per_second <= 0):
 		return
