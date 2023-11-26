@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
-
-@onready var attack_component = $AttackComponent
-@onready var attack_range_component = $AttackRangeComponent
-@onready var hitbox_component = $HitboxComponent
-@onready var health_component = $HealthComponent
-@onready var velocity_component = $VelocityComponent
-
+@onready var attack_component = $AttackComponent as AttackComponent
+@onready var attack_range_component = $AttackRangeComponent as AttackRangeComponent
+@onready var hitbox_component = $HitboxComponent as Hitbox_component
+@onready var health_component = $HealthComponent as HealthComponent
+@onready var velocity_component = $VelocityComponent as VelocityComponent
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -39,14 +37,12 @@ func on_dead():
 
 func on_attack_start():
 	velocity_component.stop_moving()
-	attack_component.start_attacking()
 	
-	animation_player.play("flame")
+	animation_player.play("Melee attack")
 
 
 func on_attack_stop():
 	velocity_component.start_moving()
-	attack_component.stop_attacking()
 	
 	animation_player.play("run")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxi3eghc5hi6q"]
+[gd_scene load_steps=10 format=3 uid="uid://dxi3eghc5hi6q"]
 
 [ext_resource type="PackedScene" uid="uid://bibqc75j1r47" path="res://scenes/game_objects/tower_launchers/arrow_launcher.tscn" id="1_burry"]
 [ext_resource type="Texture2D" uid="uid://dcqjvo1tcoe6q" path="res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png" id="1_f4stq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4mph8caocrd5" path="res://scenes/game_objects/tower_arrows/basic_arrow.tscn" id="2_2xpb8"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="5_gcl16"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="6_ed6sy"]
+[ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="7_ht072"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iak4d"]
 height = 99.0
@@ -33,9 +34,12 @@ hit_box_shape = NodePath("Hitbox")
 position = Vector2(0.5, -50.5)
 shape = SubResource("CapsuleShape2D_iak4d")
 
-[node name="ArrowLauncher" parent="." instance=ExtResource("1_burry")]
+[node name="ArrowLauncher" parent="." node_paths=PackedStringArray("p0", "p1", "p2") instance=ExtResource("1_burry")]
 position = Vector2(-9.5, -74.5)
 arrow_type = ExtResource("2_2xpb8")
+p0 = NodePath("../p0")
+p1 = NodePath("../p1")
+p2 = NodePath("../p2")
 
 [node name="PlayerUnitSpawn" type="Marker2D" parent="." groups=["player_unit_spawn"]]
 position = Vector2(19.5, 0)
@@ -49,3 +53,20 @@ texture = ExtResource("1_f4stq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -50)
 shape = SubResource("CapsuleShape2D_fr3ly")
+
+[node name="p0" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8.5, -91)
+
+[node name="p1" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(112, -128)
+
+[node name="p2" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(199.5, 0)
+
+[node name="Sprite2D4" type="Sprite2D" parent="p2"]
+self_modulate = Color(1, 0.290196, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ht072")

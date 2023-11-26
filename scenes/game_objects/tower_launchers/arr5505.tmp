@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bibqc75j1r47"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/tower_launchers/arrow_launcher.gd" id="1_pctgm"]
+[ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="2_v6v7u"]
+
+[node name="ArrowLauncher" type="Node2D"]
+script = ExtResource("1_pctgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -17)
+scale = Vector2(0.277344, 0.269531)
+texture = ExtResource("2_v6v7u")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+
+[node name="BezierCurve" type="Node" parent="."]
+
+[node name="Beginning" type="Node2D" parent="BezierCurve"]
+unique_name_in_owner = true
+position = Vector2(17, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="BezierCurve/Beginning"]
+self_modulate = Color(0.533333, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_v6v7u")
+
+[node name="Peak" type="Node2D" parent="BezierCurve"]
+unique_name_in_owner = true
+position = Vector2(0, -47)
+
+[node name="Sprite2D3" type="Sprite2D" parent="BezierCurve/Peak"]
+self_modulate = Color(0.533333, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_v6v7u")
+
+[node name="End" type="Node2D" parent="BezierCurve"]
+unique_name_in_owner = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="BezierCurve/End"]
+self_modulate = Color(0.533333, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_v6v7u")

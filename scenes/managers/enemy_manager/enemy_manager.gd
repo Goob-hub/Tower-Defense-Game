@@ -18,11 +18,11 @@ func spawn_random_enemy():
 	if(enemies.size() == 0):
 		printerr("There are no enemies in the enemy array to choose from. Fill it up you dingus")
 		return
-	
+
 	var enemy_instance = enemies.pick_random().instantiate() as CharacterBody2D
 	enemy_instance.unit_type = "enemy_unit"
 	enemy_instance.global_position = spawn_pos
-	
+
 	get_tree().get_first_node_in_group("enemy_units_layer").add_child(enemy_instance)
 
 

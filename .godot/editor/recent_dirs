@@ -1,10 +1,12 @@
+res://scenes/game_objects/trajectory_line
+res://example
+C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Ball and Chain Bot
 res://scenes/ui/in_game_ui
 res://scenes/managers/arrow_fuel_manager
 res://scenes/game_objects/ground
 res://scenes/game_objects/tower_launchers
 res://scenes/game_objects/tower_arrows
 res://scenes/managers/enemy_manager
-C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Ball and Chain Bot
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Robo-spider
 res://scenes/units/red_hood
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Dark-flame
@@ -18,6 +20,3 @@ C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites
 res://scenes/game_objects/towers/enemy_tower_1
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites/Blinding Spider
 res://scenes/game_objects
-res://resources
-res://scenes/UI
-C:/Program Files/Aseprite

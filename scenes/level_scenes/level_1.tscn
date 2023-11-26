@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfouwonbyv71l"]
+[gd_scene load_steps=12 format=3 uid="uid://bfouwonbyv71l"]
 
 [ext_resource type="Texture2D" uid="uid://bigil13r738ce" path="res://assets/backgrounds/forest_bg.png" id="1_bw2n1"]
 [ext_resource type="PackedScene" uid="uid://bam4gnoua15vg" path="res://scenes/ui/in_game_ui/game_hud.tscn" id="1_wn5bn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bobi5gt43lc5j" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="3_qad64"]
 [ext_resource type="PackedScene" uid="uid://cxdj5piscrt32" path="res://scenes/game_objects/towers/enemy_tower_1/enemy_tower_1.tscn" id="4_200oy"]
 [ext_resource type="PackedScene" uid="uid://bapa1g0b8e12u" path="res://scenes/units/dark_flame/dark_flame.tscn" id="4_agkpw"]
+[ext_resource type="PackedScene" uid="uid://bld6q1h4lexu0" path="res://scenes/units/red_hood/red_hood.tscn" id="5_kimcl"]
 [ext_resource type="PackedScene" uid="uid://dhiyojierd2ns" path="res://scenes/managers/arrow_fuel_manager/arrow_fuel_manager.tscn" id="5_mc43g"]
 [ext_resource type="PackedScene" uid="uid://dxi3eghc5hi6q" path="res://scenes/game_objects/towers/player_tower/player_tower.tscn" id="6_lhkfk"]
 [ext_resource type="PackedScene" uid="uid://8kygjcbm0e1n" path="res://scenes/game_objects/ground/ground.tscn" id="9_rfnfk"]
@@ -16,11 +17,12 @@
 [node name="GameHud" parent="." instance=ExtResource("1_wn5bn")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_ri2ej")]
-enemies = Array[PackedScene]([ExtResource("3_bra6w"), ExtResource("4_agkpw")])
+enemies = Array[PackedScene]([ExtResource("3_bra6w"), ExtResource("4_agkpw"), ExtResource("5_kimcl")])
 
 [node name="ArrowFuelManager" parent="." instance=ExtResource("5_mc43g")]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_qad64")]
+zoom = Vector2(0.805, 0.805)
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
 
@@ -29,11 +31,13 @@ position = Vector2(726.5, 145)
 scale = Vector2(3.0039, 2.17341)
 texture = ExtResource("1_bw2n1")
 
-[node name="LeftCameraBound" type="Marker2D" parent="." groups=["left_bound"]]
-position = Vector2(-9, 316)
+[node name="Towers" type="Node2D" parent="."]
 
-[node name="RightCameraBound" type="Marker2D" parent="." groups=["right_bound"]]
-position = Vector2(1432, 316)
+[node name="EnemyTower1" parent="Towers" instance=ExtResource("4_200oy")]
+position = Vector2(1365, 316)
+
+[node name="PlayerTower" parent="Towers" groups=["player_tower"] instance=ExtResource("6_lhkfk")]
+position = Vector2(61, 316)
 
 [node name="PlayerUnitsLayer" type="Node2D" parent="." groups=["player_units_layer"]]
 
@@ -41,13 +45,11 @@ position = Vector2(1432, 316)
 
 [node name="Projectiles" type="Node2D" parent="." groups=["projectiles_layer"]]
 
-[node name="Towers" type="Node2D" parent="."]
-
-[node name="EnemyTower1" parent="Towers" instance=ExtResource("4_200oy")]
-position = Vector2(1365, 316)
-
-[node name="PlayerTower" parent="Towers" instance=ExtResource("6_lhkfk")]
-position = Vector2(61, 316)
-
 [node name="Ground" parent="." instance=ExtResource("9_rfnfk")]
 position = Vector2(700, 316)
+
+[node name="LeftCameraBound" type="Marker2D" parent="." groups=["left_bound"]]
+position = Vector2(-9, 316)
+
+[node name="RightCameraBound" type="Marker2D" parent="." groups=["right_bound"]]
+position = Vector2(1432, 316)

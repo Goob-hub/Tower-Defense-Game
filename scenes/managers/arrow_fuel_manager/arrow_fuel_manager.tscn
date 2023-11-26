@@ -4,5 +4,6 @@
 
 [node name="ArrowFuelManager" type="Node" groups=["arrow_fuel_manager"]]
 script = ExtResource("1_2icy3")
+max_fuel = 200.0
 
 [node name="Timer" type="Timer" parent="."]

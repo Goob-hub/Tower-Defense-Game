@@ -29,11 +29,19 @@ func on_timer_timeout():
 
 func start_attacking():
 	attack_shape.set_deferred("disabled", false)
+	
+	if(wait_time == null):
+		return
+	
 	attack_rate_timer.wait_time = wait_time
 	attack_rate_timer.start()
 
 
 func stop_attacking():
 	attack_shape.set_deferred("disabled", true)
+	
+	if(wait_time == null):
+		return
+	
 	attack_rate_timer.wait_time = wait_time
 	attack_rate_timer.stop()
