@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FireEffect" load_steps=3 format=3 uid="uid://cog2bd3qcwka"]
+
+[ext_resource type="Script" path="res://resources/status_effects/fire_effect/fire_effect_data.gd" id="1_h3wn8"]
+[ext_resource type="PackedScene" uid="uid://cmer10k4d0o17" path="res://scenes/status_effect_components/fire_effect/fire_effect_component.tscn" id="2_7f4lc"]
+
+[resource]
+script = ExtResource("1_h3wn8")
+duration = 3.0
+base_damage = 1.0
+stacks_applied = 1.0
+name = "fire"
+component = ExtResource("2_7f4lc")

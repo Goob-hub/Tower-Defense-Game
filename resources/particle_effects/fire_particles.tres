@@ -1,0 +1,22 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://bmwxguk5ihdo1"]
+
+[sub_resource type="Curve" id="Curve_pa0jw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747475, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h4m8w"]
+curve = SubResource("Curve_pa0jw")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 56.35
+gravity = Vector3(0, 50, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 4.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_h4m8w")
+color = Color(1, 0.584314, 0.380392, 1)

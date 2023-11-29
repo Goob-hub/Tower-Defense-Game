@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6hfuihay6ujv"]
+
+[ext_resource type="PackedScene" uid="uid://bapa1g0b8e12u" path="res://scenes/units/dark_flame/dark_flame.tscn" id="1_p4a4c"]
+[ext_resource type="Script" path="res://scenes/testing_grounds/test_enemy_scene.gd" id="1_vuhtg"]
+
+[node name="Test enemy scene" type="Node"]
+script = ExtResource("1_vuhtg")
+unit_scene = ExtResource("1_p4a4c")
+
+[node name="Player_units" type="Node2D" parent="."]
+position = Vector2(68, 234)
+
+[node name="Enemy_units" type="Node2D" parent="."]
+position = Vector2(487, 234)

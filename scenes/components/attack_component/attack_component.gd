@@ -18,6 +18,8 @@ func _ready():
 	wait_time = 1 / self.attacks_per_second
 	
 	attack_rate_timer.timeout.connect(on_timer_timeout)
+	
+	set_status_effect_data()
 
 
 func on_timer_timeout():
@@ -45,3 +47,8 @@ func stop_attacking():
 	
 	attack_rate_timer.wait_time = wait_time
 	attack_rate_timer.stop()
+
+
+func set_status_effect_data():
+	for status_effect in status_effects:
+		status_effect.set_data()

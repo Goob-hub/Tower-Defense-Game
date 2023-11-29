@@ -1,12 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://bapa1g0b8e12u"]
+[gd_scene load_steps=23 format=3 uid="uid://bapa1g0b8e12u"]
 
 [ext_resource type="Script" path="res://scenes/units/dark_flame/dark_flame.gd" id="1_2e7oo"]
 [ext_resource type="Texture2D" uid="uid://ciueasvcyruc0" path="res://scenes/units/dark_flame/flame dude dark.png" id="1_g10o7"]
+[ext_resource type="PackedScene" uid="uid://d67vey8nga18" path="res://scenes/managers/effects_manager/effects_manager.tscn" id="2_hwvga"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="2_i1k7t"]
 [ext_resource type="PackedScene" uid="uid://v5aggwtsq0gt" path="res://scenes/components/attack_component/attack_component.tscn" id="2_lgo63"]
 [ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_1ea0v"]
 [ext_resource type="Texture2D" uid="uid://nvnkfaab8c4l" path="res://scenes/units/dark_flame/flame_unit_dark.png" id="3_2frje"]
 [ext_resource type="PackedScene" uid="uid://bh2t45r00cxa1" path="res://scenes/components/attack_range_component/attack_range_component.tscn" id="3_iw8wr"]
+[ext_resource type="Resource" uid="uid://cog2bd3qcwka" path="res://resources/status_effects/fire_effect/fire_effect.tres" id="4_3ddpk"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_7k51b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cch5y"]
@@ -499,10 +501,13 @@ _data = {
 scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
 
+[node name="StatusEffectManager" parent="." instance=ExtResource("2_hwvga")]
+
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("2_lgo63")]
 attack_shape = NodePath("Attack")
 damage = 10.0
 attacks_per_second = 3.0
+status_effects = [ExtResource("4_3ddpk")]
 
 [node name="Attack" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(35.5, -11)
@@ -517,7 +522,8 @@ attack_range_shape = NodePath("AttackRange")
 position = Vector2(51, -26)
 shape = SubResource("RectangleShape2D_qaksm")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("4_7k51b")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("status_effect_manager", "health_component", "hit_box_shape") instance=ExtResource("4_7k51b")]
+status_effect_manager = NodePath("../StatusEffectManager")
 health_component = NodePath("../HealthComponent")
 hit_box_shape = NodePath("HitBox")
 
@@ -526,7 +532,7 @@ position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_0vb0n")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_i1k7t")]
-max_health = 100.0
+max_health = 1000.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_1ea0v")]
 base_mov_speed = 50.0

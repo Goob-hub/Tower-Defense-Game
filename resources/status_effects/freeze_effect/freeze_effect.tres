@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://de8byk755q2jb"]
+
+[ext_resource type="Script" path="res://resources/status_effects/freeze_effect/freeze_effect_data.gd" id="1_2nt6u"]
+
+[resource]
+script = ExtResource("1_2nt6u")

@@ -12,6 +12,8 @@ func _ready():
 	timer.timeout.connect(on_timer_timeout)
 	timer.start()
 	spawn_pos = get_tree().get_first_node_in_group("enemy_unit_spawn").global_position
+	
+	spawn_random_enemy()
 
 
 func spawn_random_enemy():
@@ -19,7 +21,7 @@ func spawn_random_enemy():
 		printerr("There are no enemies in the enemy array to choose from. Fill it up you dingus")
 		return
 
-	var enemy_instance = enemies.pick_random().instantiate() as CharacterBody2D
+	var enemy_instance = enemies.pick_random().instantiate() as Unit
 	enemy_instance.unit_type = "enemy_unit"
 	enemy_instance.global_position = spawn_pos
 

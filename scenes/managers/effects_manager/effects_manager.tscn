@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d67vey8nga18"]
+
+[ext_resource type="Script" path="res://scenes/managers/effects_manager/effects_manager.gd" id="1_h64nm"]
+
+[node name="StatusEffectManager" type="Node2D"]
+script = ExtResource("1_h64nm")

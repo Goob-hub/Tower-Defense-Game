@@ -1,10 +1,10 @@
 extends StaticBody2D
 class_name Arrow 
 
-@export var arrow_speed:float = 1200
+@export var arrow_speed:float = 800
 @export var arrow_damage: float = 20
 @export var fuel_cost_per_shot: float = 1
-@export var arrow_effects = []
+@export var arrow_effects: Array[StatusEffect]
 @export var stop_on_ground: bool = true
 
 @onready var attack_component = $AttackComponent as AttackComponent

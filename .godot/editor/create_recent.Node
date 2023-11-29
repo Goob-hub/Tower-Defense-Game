@@ -1,10 +1,12 @@
+GPUParticles2D
+CPUParticles2D
+Node2D
+Node
 Timer
 StaticBody2D
-Node2D
 CharacterBody2D
 Line2D
 RigidBody2D
-Node
 Sprite2D
 Marker2D
 AnimationPlayer

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmer10k4d0o17"]
+
+[ext_resource type="Script" path="res://scenes/status_effect_components/fire_effect/fire_effect_component.gd" id="1_1nk3c"]
+[ext_resource type="Material" uid="uid://bmwxguk5ihdo1" path="res://resources/particle_effects/fire_particles.tres" id="2_4xu5n"]
+[ext_resource type="Material" uid="uid://yudlilp23y6n" path="res://resources/particle_effects/explosion_particles.tres" id="3_sej6t"]
+[ext_resource type="Texture2D" uid="uid://dyyrju4hnn33q" path="res://assets/particle_images/particle.png" id="4_pdthq"]
+
+[node name="FireEffect" type="Node2D"]
+script = ExtResource("1_1nk3c")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="FireParticles" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = ExtResource("2_4xu5n")
+lifetime = 0.5
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+visible = false
+emitting = false
+process_material = ExtResource("3_sej6t")
+texture = ExtResource("4_pdthq")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0

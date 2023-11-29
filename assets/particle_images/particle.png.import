@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://76jq6148prqs"
-path="res://.godot/imported/sci ball and chain.png-3fd9bf7fd542117f06f154157ee13fe0.ctex"
+uid="uid://dyyrju4hnn33q"
+path="res://.godot/imported/particle.png-7d37bfa339390c87a9244f3712458d74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://example/sci ball and chain.png"
-dest_files=["res://.godot/imported/sci ball and chain.png-3fd9bf7fd542117f06f154157ee13fe0.ctex"]
+source_file="res://assets/particle_images/particle.png"
+dest_files=["res://.godot/imported/particle.png-7d37bfa339390c87a9244f3712458d74.ctex"]
 
 [params]
 

@@ -27,7 +27,7 @@ func on_timer_timeout():
 
 
 func on_button_pressed():
-	var unit_instance = unit_scene.instantiate()
+	var unit_instance = unit_scene.instantiate() as Unit
 	unit_instance.global_position = unit_spawn_position
 	unit_instance.unit_type = "player_unit"
 	get_tree().get_first_node_in_group("player_units_layer").add_child(unit_instance)
