@@ -15,9 +15,9 @@ var pos0: Vector2
 var pos1: Vector2
 var pos2: Vector2
 
-var is_on_ground = false
-var time = 0
+var percent_travelled: float = 0.0
 var distance: float
+var is_on_ground = false
 
 func _ready():
 	if(stop_on_ground):
@@ -33,10 +33,10 @@ func _physics_process(delta):
 	if(is_on_ground):
 		return
 	
-	self.global_position = bezier(pos0, pos1, pos2, time)
-	time += delta / (distance / arrow_speed)
+	self.global_position = bezier(pos0, pos1, pos2, percent_travelled)
+	percent_travelled += delta / (distance / arrow_speed)
 	
-	if(time >= 1):
+	if(percent_travelled >= 1):
 		is_on_ground = true
 
 
@@ -46,8 +46,9 @@ func on_body_entered(other_body: Node2D):
 		animation_player.play("fade_out")
 
 
-func bezier(point_0: Vector2, point_1: Vector2, point_2: Vector2, t: float):
-	var q0 = point_0.lerp(point_1, t)
-	var q1 = point_1.lerp(point_2, t)
-	var r = q0.lerp(q1, t)
-	return r
+func bezier(point_0: Vector2, point_1: Vector2, point_2: Vector2, percent: float) -> Vector2:
+	var q0 = point_0.lerp(point_1, percent)
+	var q1 = point_1.lerp(point_2, percent)
+	var arrow_pos = q0.lerp(q1, percent)
+	
+	return arrow_pos

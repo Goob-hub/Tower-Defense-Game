@@ -18,7 +18,7 @@ func _ready():
 	current_health = max_health
 
 
-func damage(damage_amount: float):
+func damage(damage_amount: float) -> void:
 	current_health = maxf(0.0, current_health - damage_amount)
 	
 	if(current_health == 0):
@@ -27,6 +27,6 @@ func damage(damage_amount: float):
 		damaged.emit(damage_amount)
 
 
-func heal(heal_amount: float):
+func heal(heal_amount: float) -> void:
 	current_health = minf(max_health, current_health + heal_amount)
 	healed.emit(heal_amount)

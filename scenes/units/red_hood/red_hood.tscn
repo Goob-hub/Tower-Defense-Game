@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bld6q1h4lexu0"]
+[gd_scene load_steps=22 format=3 uid="uid://bld6q1h4lexu0"]
 
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="1_60elf"]
 [ext_resource type="PackedScene" uid="uid://v5aggwtsq0gt" path="res://scenes/components/attack_component/attack_component.tscn" id="1_jgue6"]
@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://d67vey8nga18" path="res://scenes/managers/effects_manager/effects_manager.tscn" id="2_uyauo"]
 [ext_resource type="Texture2D" uid="uid://sdgq4g2b74ms" path="res://scenes/units/red_hood/sci ball and chain.png" id="3_26nxo"]
 [ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_d6gcp"]
+[ext_resource type="Resource" uid="uid://drtmw0fm0t7vq" path="res://resources/status_effects/poison_effect/poison_effect.tres" id="5_2hw3e"]
+[ext_resource type="PackedScene" uid="uid://c4f50a4y7neae" path="res://scenes/components/health_bar_component/health_bar_component.tscn" id="9_7mv3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yopaj"]
-size = Vector2(100, 40)
+size = Vector2(92, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uf16x"]
 size = Vector2(50, 20)
@@ -397,15 +399,18 @@ script = ExtResource("1_pk7qt")
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_uyauo")]
 
 [node name="AttackRangeComponent" parent="." node_paths=PackedStringArray("attack_range_shape") instance=ExtResource("2_ggqys")]
+unique_name_in_owner = true
 attack_range_shape = NodePath("AttackRange")
 
 [node name="AttackRange" type="CollisionShape2D" parent="AttackRangeComponent"]
-position = Vector2(50, -20)
+position = Vector2(46, -20)
 shape = SubResource("RectangleShape2D_yopaj")
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("1_jgue6")]
+unique_name_in_owner = true
 attack_shape = NodePath("AttackShape")
 damage = 15.0
+status_effects = Array[Resource("res://classes/status_effect.gd")]([ExtResource("5_2hw3e")])
 
 [node name="AttackShape" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(25, -10)
@@ -413,6 +418,7 @@ shape = SubResource("RectangleShape2D_uf16x")
 disabled = true
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("status_effect_manager", "health_component", "hit_box_shape") instance=ExtResource("2_6n7tr")]
+unique_name_in_owner = true
 status_effect_manager = NodePath("../StatusEffectManager")
 health_component = NodePath("../HealthComponent")
 hit_box_shape = NodePath("Hitbox")
@@ -422,13 +428,16 @@ position = Vector2(-0.5, -10)
 shape = SubResource("RectangleShape2D_sxr8y")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_d6gcp")]
+unique_name_in_owner = true
 base_mov_speed = 100.0
 base_acceleration = 20.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_60elf")]
-max_health = 600.0
+unique_name_in_owner = true
+max_health = 300.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_1iurb")
@@ -440,7 +449,7 @@ position = Vector2(17, -14)
 texture = ExtResource("3_26nxo")
 hframes = 6
 vframes = 6
-frame = 24
+frame = 14
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -458,3 +467,6 @@ visible = false
 position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_18x68")
 disabled = true
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_7mv3d")]
+health_component = NodePath("../HealthComponent")

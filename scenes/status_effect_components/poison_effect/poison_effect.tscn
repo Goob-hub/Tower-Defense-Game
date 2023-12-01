@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0qb4cgmjype"]
+
+[ext_resource type="Script" path="res://scenes/status_effect_components/poison_effect/poison_effect.gd" id="1_yina0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3276t"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 25.54
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.45098, 0.823529, 0.219608, 1)
+
+[node name="PoisonEffect" type="Node2D"]
+script = ExtResource("1_yina0")
+
+[node name="TimeUntilDamage" type="Timer" parent="."]
+
+[node name="Duration" type="Timer" parent="."]
+
+[node name="PoisonParticles" type="GPUParticles2D" parent="."]
+z_index = 2
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_3276t")
+lifetime = 5.0

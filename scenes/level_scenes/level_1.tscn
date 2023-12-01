@@ -18,8 +18,8 @@
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_ri2ej")]
 enemies = Array[PackedScene]([ExtResource("3_bra6w"), ExtResource("4_agkpw"), ExtResource("5_kimcl")])
-max_time_between_summons = 50.0
-min_time_between_summons = 40.0
+max_time_between_summons = 5.0
+min_time_between_summons = 3.0
 
 [node name="ArrowFuelManager" parent="." instance=ExtResource("5_mc43g")]
 

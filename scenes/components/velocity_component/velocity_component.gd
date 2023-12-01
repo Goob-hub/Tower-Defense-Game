@@ -4,9 +4,9 @@ class_name VelocityComponent
 @export var base_mov_speed: float
 @export var base_acceleration: float
 
-var velocity = Vector2.ZERO
-var altering_mov_speed
-var altering_acceleration
+var velocity: Vector2 = Vector2.ZERO
+var altering_mov_speed: float
+var altering_acceleration: float
 
 
 func _ready():

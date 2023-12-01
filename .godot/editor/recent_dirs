@@ -1,3 +1,7 @@
+res://resources/status_effects/poison_effect
+res://scenes/status_effect_components/poison_effect
+res://scenes/components/health_bar_component
+res://scenes/components/death_component
 res://resources/particle_effects
 res://scenes/testing_grounds
 res://scenes/status_effect_components/fire_effect
@@ -17,8 +21,5 @@ res://scenes/managers/enemy_manager
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Robo-spider
 res://scenes/units/red_hood
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Dark-flame
-res://scenes/components/attack_range_component
-res://scenes/components/attack_component
-res://scenes/components/hitbox_component
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites/Blinding Spider

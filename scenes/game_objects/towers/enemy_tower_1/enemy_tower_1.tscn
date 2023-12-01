@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxdj5piscrt32"]
+[gd_scene load_steps=8 format=3 uid="uid://cxdj5piscrt32"]
 
 [ext_resource type="Texture2D" uid="uid://dcqjvo1tcoe6q" path="res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png" id="1_7p5cb"]
 [ext_resource type="Script" path="res://scenes/game_objects/towers/enemy_tower_1/enemy_tower_1.gd" id="1_w38jp"]
 [ext_resource type="Script" path="res://scenes/components/health_component/health_component.gd" id="1_x4fit"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="2_41cpv"]
+[ext_resource type="PackedScene" uid="uid://c4f50a4y7neae" path="res://scenes/components/health_bar_component/health_bar_component.tscn" id="5_0almr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujyp1"]
 radius = 26.5
@@ -21,12 +22,13 @@ script = ExtResource("1_w38jp")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("1_x4fit")
-max_health = 100.0
+max_health = 1500.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_41cpv")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("2_41cpv")]
 collision_layer = 2
 collision_mask = 8
 health_component = NodePath("../HealthComponent")
+hit_box_shape = NodePath("Hitbox")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0.5, -45)
@@ -42,3 +44,9 @@ texture = ExtResource("1_7p5cb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -51)
 shape = SubResource("CapsuleShape2D_ytpqj")
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_0almr")]
+offset_left = -15.0
+offset_right = 15.0
+offset_bottom = 6.0
+health_component = NodePath("../HealthComponent")

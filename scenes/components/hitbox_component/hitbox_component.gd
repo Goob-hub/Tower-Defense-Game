@@ -9,16 +9,17 @@ func _ready():
 	self.area_entered.connect(on_area_entered)
 
 
-func on_area_entered(other_area: Area2D):
+func on_area_entered(other_area: Area2D) -> void:
 	if(other_area is Attack):
 		health_component.damage(other_area.damage)
-		if(other_area.status_effects.size() > 0):
+		
+		if(other_area.status_effects.size() > 0 and status_effect_manager != null):
 			status_effect_manager.handle_status_effects(other_area.status_effects)
 
 
-func disable_hitbox():
+func disable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", true)
 
 
-func enable_hitbox():
+func enable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", false)

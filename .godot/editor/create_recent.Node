@@ -1,8 +1,9 @@
+Timer
+ProgressBar
+Node2D
 GPUParticles2D
 CPUParticles2D
-Node2D
 Node
-Timer
 StaticBody2D
 CharacterBody2D
 Line2D
@@ -13,7 +14,6 @@ AnimationPlayer
 CollisionShape2D
 HBoxContainer
 MarginContainer
-ProgressBar
 Hitbox_component
 Area2D
 VBoxContainer

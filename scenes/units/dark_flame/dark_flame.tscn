@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bapa1g0b8e12u"]
+[gd_scene load_steps=24 format=3 uid="uid://bapa1g0b8e12u"]
 
 [ext_resource type="Script" path="res://scenes/units/dark_flame/dark_flame.gd" id="1_2e7oo"]
 [ext_resource type="Texture2D" uid="uid://ciueasvcyruc0" path="res://scenes/units/dark_flame/flame dude dark.png" id="1_g10o7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bh2t45r00cxa1" path="res://scenes/components/attack_range_component/attack_range_component.tscn" id="3_iw8wr"]
 [ext_resource type="Resource" uid="uid://cog2bd3qcwka" path="res://resources/status_effects/fire_effect/fire_effect.tres" id="4_3ddpk"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_7k51b"]
+[ext_resource type="PackedScene" uid="uid://c4f50a4y7neae" path="res://scenes/components/health_bar_component/health_bar_component.tscn" id="11_ggja5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cch5y"]
 radius = 11.0001
@@ -20,9 +21,6 @@ size = Vector2(90, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vb0n"]
 size = Vector2(16, 21)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ja7y"]
-radius = 6.08276
 
 [sub_resource type="Animation" id="Animation_tm6jl"]
 length = 1.5
@@ -497,6 +495,9 @@ _data = {
 "run": SubResource("Animation_a3dra")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ja7y"]
+radius = 6.08276
+
 [node name="DarkFlame" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
@@ -504,10 +505,11 @@ script = ExtResource("1_2e7oo")
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_hwvga")]
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("2_lgo63")]
+unique_name_in_owner = true
 attack_shape = NodePath("Attack")
-damage = 10.0
-attacks_per_second = 3.0
-status_effects = [ExtResource("4_3ddpk")]
+damage = 5.0
+attacks_per_second = 7.0
+status_effects = Array[Resource("res://classes/status_effect.gd")]([ExtResource("4_3ddpk")])
 
 [node name="Attack" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(35.5, -11)
@@ -516,6 +518,7 @@ shape = SubResource("CapsuleShape2D_cch5y")
 disabled = true
 
 [node name="AttackRangeComponent" parent="." node_paths=PackedStringArray("attack_range_shape") instance=ExtResource("3_iw8wr")]
+unique_name_in_owner = true
 attack_range_shape = NodePath("AttackRange")
 
 [node name="AttackRange" type="CollisionShape2D" parent="AttackRangeComponent"]
@@ -523,6 +526,7 @@ position = Vector2(51, -26)
 shape = SubResource("RectangleShape2D_qaksm")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("status_effect_manager", "health_component", "hit_box_shape") instance=ExtResource("4_7k51b")]
+unique_name_in_owner = true
 status_effect_manager = NodePath("../StatusEffectManager")
 health_component = NodePath("../HealthComponent")
 hit_box_shape = NodePath("HitBox")
@@ -532,11 +536,24 @@ position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_0vb0n")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_i1k7t")]
-max_health = 1000.0
+unique_name_in_owner = true
+max_health = 150.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_1ea0v")]
+unique_name_in_owner = true
 base_mov_speed = 50.0
 base_acceleration = 10.0
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("11_ggja5")]
+offset_left = -6.5
+offset_right = 8.5
+health_component = NodePath("../HealthComponent")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_uqbld")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -560,9 +577,4 @@ metadata/_aseprite_wizard_config_ = {
 "op_exp": false,
 "player": "AnimationPlayer",
 "source": "C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Dark-flame/flame dude dark.aseprite"
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_uqbld")
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxi3eghc5hi6q"]
+[gd_scene load_steps=11 format=3 uid="uid://dxi3eghc5hi6q"]
 
 [ext_resource type="PackedScene" uid="uid://bibqc75j1r47" path="res://scenes/game_objects/tower_launchers/arrow_launcher.tscn" id="1_burry"]
 [ext_resource type="Texture2D" uid="uid://dcqjvo1tcoe6q" path="res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png" id="1_f4stq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="5_gcl16"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="6_ed6sy"]
 [ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="7_ht072"]
+[ext_resource type="PackedScene" uid="uid://c4f50a4y7neae" path="res://scenes/components/health_bar_component/health_bar_component.tscn" id="8_cv5eo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iak4d"]
 height = 99.0
@@ -22,7 +23,7 @@ collision_mask = 4
 script = ExtResource("1_v3txl")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_gcl16")]
-max_health = 100.0
+max_health = 1500.0
 
 [node name="Hitbox_component" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape")]
 collision_mask = 16
@@ -70,3 +71,8 @@ position = Vector2(199.5, 0)
 self_modulate = Color(1, 0.290196, 1, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_ht072")
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_cv5eo")]
+offset_left = -15.0
+offset_right = 15.0
+health_component = NodePath("../HealthComponent")

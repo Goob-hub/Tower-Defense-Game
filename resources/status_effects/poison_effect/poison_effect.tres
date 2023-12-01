@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PoisonEffect" load_steps=3 format=3 uid="uid://drtmw0fm0t7vq"]
+
+[ext_resource type="PackedScene" uid="uid://d0qb4cgmjype" path="res://scenes/status_effect_components/poison_effect/poison_effect.tscn" id="1_6kwva"]
+[ext_resource type="Script" path="res://resources/status_effects/poison_effect/poison_effect.gd" id="1_12a5s"]
+
+[resource]
+script = ExtResource("1_12a5s")
+damage = 10.0
+duration = 10.0
+time_until_damage = 1.0
+stack_duration_potency = 0.1
+name = "poison"
+component = ExtResource("1_6kwva")

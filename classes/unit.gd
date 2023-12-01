@@ -1,13 +1,13 @@
 extends CharacterBody2D
 class_name Unit
 
-@onready var attack_range_component = $AttackRangeComponent as AttackRangeComponent
-@onready var attack_component = $AttackComponent as AttackComponent
-@onready var hitbox_component = $HitboxComponent as Hitbox_component
-@onready var velocity_component = $VelocityComponent as VelocityComponent
-@onready var health_component = $HealthComponent as HealthComponent
+@onready var attack_range_component = $%AttackRangeComponent as AttackRangeComponent
+@onready var attack_component = $%AttackComponent as AttackComponent
+@onready var hitbox_component = $%HitboxComponent as Hitbox_component
+@onready var velocity_component = $%VelocityComponent as VelocityComponent
+@onready var health_component = $%HealthComponent as HealthComponent
 
-@onready var animation_player = $AnimationPlayer as AnimationPlayer
+@onready var animation_player = $%AnimationPlayer as AnimationPlayer
 
 var unit_type
 var direction

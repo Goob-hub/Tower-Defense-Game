@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_h3wn8")
 duration = 3.0
-base_damage = 1.0
+base_damage = 3.0
 stacks_applied = 1.0
+time_until_damage = 1.0
 name = "fire"
 component = ExtResource("2_7f4lc")
