@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxi3eghc5hi6q"]
+[gd_scene load_steps=10 format=3 uid="uid://dxi3eghc5hi6q"]
 
 [ext_resource type="PackedScene" uid="uid://bibqc75j1r47" path="res://scenes/game_objects/tower_launchers/arrow_launcher.tscn" id="1_burry"]
 [ext_resource type="Texture2D" uid="uid://dcqjvo1tcoe6q" path="res://scenes/game_objects/towers/enemy_tower_1/Tower-1.png" id="1_f4stq"]
 [ext_resource type="Script" path="res://scenes/game_objects/towers/player_tower/player_tower.gd" id="1_v3txl"]
-[ext_resource type="PackedScene" uid="uid://c4mph8caocrd5" path="res://scenes/game_objects/tower_arrows/basic_arrow.tscn" id="2_2xpb8"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="5_gcl16"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="6_ed6sy"]
 [ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="7_ht072"]
@@ -37,7 +36,9 @@ shape = SubResource("CapsuleShape2D_iak4d")
 
 [node name="ArrowLauncher" parent="." node_paths=PackedStringArray("p0", "p1", "p2") instance=ExtResource("1_burry")]
 position = Vector2(-9.5, -74.5)
-arrow_type = ExtResource("2_2xpb8")
+arrow_range = 800.0
+rot_amount_deg = 3
+fire_rate = 0.2
 p0 = NodePath("../p0")
 p1 = NodePath("../p1")
 p2 = NodePath("../p2")

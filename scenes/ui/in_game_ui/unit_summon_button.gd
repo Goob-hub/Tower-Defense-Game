@@ -1,20 +1,21 @@
 extends Control
+class_name UnitSummonButton
 
 @export var unit_scene: PackedScene
-@export var unit_image: Texture
+@export var unit_icon: Texture
 
 @onready var interact_button = %InteractButton
 @onready var sprite = %UnitImage
 @onready var mana_cost_label = %ManaCost
 @onready var cooldown_timer = $CooldownTimer
 
-var cooldown: float = 3
-var mana_cost: float = 30
+var cooldown: float = 1
+var mana_cost: float = 1
 var unit_spawn_position
 
 func _ready():
 	unit_spawn_position = get_tree().get_first_node_in_group("player_unit_spawn").global_position
-	sprite.texture = unit_image
+	sprite.texture = unit_icon
 	mana_cost_label.text = str(mana_cost)
 	cooldown_timer.wait_time = cooldown
 	

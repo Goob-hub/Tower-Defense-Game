@@ -1,3 +1,6 @@
+res://scenes/ui/in_game_ui
+res://scenes/managers/mana_manager
+res://scenes/status_effect_components/freeze_effect
 res://resources/status_effects/poison_effect
 res://scenes/status_effect_components/poison_effect
 res://scenes/components/health_bar_component
@@ -12,14 +15,12 @@ res://resources/status_effects
 res://scenes/managers/effects_manager
 res://scenes/game_objects/trajectory_line
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Ball and Chain Bot
-res://scenes/ui/in_game_ui
 res://scenes/managers/arrow_fuel_manager
 res://scenes/game_objects/ground
 res://scenes/game_objects/tower_launchers
 res://scenes/game_objects/tower_arrows
 res://scenes/managers/enemy_manager
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Robo-spider
-res://scenes/units/red_hood
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Dark-flame
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites/Blinding Spider

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lsk1t2htb3sb"]
+
+[ext_resource type="Script" path="res://scenes/status_effect_components/freeze_effect/freeze_effect.gd" id="1_3uoy3"]
+
+[node name="FreezeEffect" type="Node2D"]
+script = ExtResource("1_3uoy3")
+
+[node name="Timer" type="Timer" parent="."]

@@ -43,3 +43,6 @@ func _handle_duplicate_status_effects(status_effect: StatusEffect) -> void:
 		
 		if(status_effect_component is PoisonEffectComponent and status_effect is PoisonEffect):
 			status_effect_component.handle_duplicate_status_effect(status_effect as PoisonEffect)
+		
+		if(status_effect_component is FreezeEffectComponent and status_effect is FreezeEffect):
+			status_effect_component.handle_duplicate_status_effect(status_effect as FreezeEffect)

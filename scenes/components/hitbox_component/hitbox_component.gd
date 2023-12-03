@@ -12,7 +12,6 @@ func _ready():
 func on_area_entered(other_area: Area2D) -> void:
 	if(other_area is Attack):
 		health_component.damage(other_area.damage)
-		
 		if(other_area.status_effects.size() > 0 and status_effect_manager != null):
 			status_effect_manager.handle_status_effects(other_area.status_effects)
 

@@ -2,7 +2,6 @@ extends ProgressBar
 
 var fuel_manager
 
-
 func _ready():
 	fuel_manager = get_tree().get_first_node_in_group("arrow_fuel_manager") as ArrowFuelManager
 	fuel_manager.fuel_updated.connect(on_fuel_updated)

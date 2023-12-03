@@ -1,10 +1,9 @@
 extends StaticBody2D
 class_name Arrow 
 
-@export var arrow_speed:float = 800
-@export var arrow_damage: float = 20
-@export var fuel_cost_per_shot: float = 1
-@export var arrow_effects: Array[StatusEffect]
+@export var arrow_speed:float = 500
+@export var arrow_damage: float = 10
+@export var fuel_cost_per_shot: float = 2
 @export var stop_on_ground: bool = true
 
 @onready var attack_component = $AttackComponent as AttackComponent
@@ -26,7 +25,6 @@ func _ready():
 	distance = pos2.distance_to(pos0)
 	
 	attack_component.damage = arrow_damage
-	attack_component.status_effects = arrow_effects
 
 
 func _physics_process(delta):
@@ -40,7 +38,7 @@ func _physics_process(delta):
 		is_on_ground = true
 
 
-func on_body_entered(other_body: Node2D):
+func on_body_entered(other_body: Node2D) -> void:
 	if(other_body.is_in_group("ground")):
 		is_on_ground = true
 		animation_player.play("fade_out")

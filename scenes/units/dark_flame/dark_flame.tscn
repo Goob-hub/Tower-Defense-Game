@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bapa1g0b8e12u"]
+[gd_scene load_steps=25 format=3 uid="uid://bapa1g0b8e12u"]
 
 [ext_resource type="Script" path="res://scenes/units/dark_flame/dark_flame.gd" id="1_2e7oo"]
 [ext_resource type="Texture2D" uid="uid://ciueasvcyruc0" path="res://scenes/units/dark_flame/flame dude dark.png" id="1_g10o7"]
+[ext_resource type="Texture2D" uid="uid://maqkbxvgs823" path="res://scenes/units/dark_flame/dark_flame.png" id="2_5cq1s"]
 [ext_resource type="PackedScene" uid="uid://d67vey8nga18" path="res://scenes/managers/effects_manager/effects_manager.tscn" id="2_hwvga"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="2_i1k7t"]
 [ext_resource type="PackedScene" uid="uid://v5aggwtsq0gt" path="res://scenes/components/attack_component/attack_component.tscn" id="2_lgo63"]
@@ -501,6 +502,10 @@ radius = 6.08276
 [node name="DarkFlame" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
+cooldown = 10.0
+mana_cost = 100.0
+unit_icon = ExtResource("2_5cq1s")
+unit_name = "dark_flame"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_hwvga")]
 

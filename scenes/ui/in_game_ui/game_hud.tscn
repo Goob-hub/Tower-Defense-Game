@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bam4gnoua15vg"]
+[gd_scene load_steps=7 format=3 uid="uid://bam4gnoua15vg"]
 
 [ext_resource type="Script" path="res://scenes/ui/in_game_ui/game_hud.gd" id="1_2o37h"]
-[ext_resource type="PackedScene" uid="uid://bib3p8qapwwux" path="res://scenes/ui/in_game_ui/unit_summon_bar.tscn" id="1_5p8bl"]
-[ext_resource type="PackedScene" uid="uid://6l3q4ik32nkn" path="res://scenes/ui/in_game_ui/arrow_fuel_guage.tscn" id="3_f0hha"]
+[ext_resource type="PackedScene" uid="uid://cyx1njgeyn6o2" path="res://scenes/ui/in_game_ui/arrow_launcher_buttons.tscn" id="3_gwlsw"]
+[ext_resource type="PackedScene" uid="uid://bib3p8qapwwux" path="res://scenes/ui/in_game_ui/unit_summon_bar.tscn" id="3_j066r"]
+[ext_resource type="PackedScene" uid="uid://d2b32mutetjfs" path="res://scenes/units/robo_spider/robo_spider.tscn" id="4_d5edu"]
+[ext_resource type="PackedScene" uid="uid://bld6q1h4lexu0" path="res://scenes/units/red_hood/red_hood.tscn" id="5_3xql0"]
+[ext_resource type="PackedScene" uid="uid://bapa1g0b8e12u" path="res://scenes/units/dark_flame/dark_flame.tscn" id="6_fgk8e"]
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_2o37h")
@@ -13,31 +16,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="Interactables" type="HBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_constants/separation = 15
 
-[node name="UnitSummonBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_5p8bl")]
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_bottom = 12
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ArrowLauncherButtons" parent="MarginContainer/Interactables" instance=ExtResource("3_gwlsw")]
 layout_mode = 2
 
-[node name="FireTowerLauncher" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" groups=["start_launcher_button"]]
+[node name="UnitSummonBar" parent="MarginContainer/Interactables" instance=ExtResource("3_j066r")]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Arrows: OFF"
+selected_units = Array[PackedScene]([ExtResource("4_d5edu"), ExtResource("5_3xql0"), ExtResource("6_fgk8e")])
 
-[node name="ArrowFuelGuage" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_f0hha")]
-custom_minimum_size = Vector2(100, 50)
+[node name="ImportantInformation" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-value = 1.0
-show_percentage = true
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ManaInfo" type="MarginContainer" parent="MarginContainer/ImportantInformation"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ImportantInformation/ManaInfo"]
+layout_mode = 2
+
+[node name="ManaAmount" type="Label" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer"]
+layout_mode = 2
+text = "0 / 1000"
+
+[node name="ManaIconContainer" type="PanelContainer" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer"]
+layout_mode = 2
+
+[node name="ManaIcon" type="Sprite2D" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer/ManaIconContainer"]

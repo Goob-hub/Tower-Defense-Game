@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2b32mutetjfs"]
+[gd_scene load_steps=26 format=3 uid="uid://d2b32mutetjfs"]
 
 [ext_resource type="Texture2D" uid="uid://tbyj0altp4wr" path="res://scenes/units/robo_spider/Blinding Spider.png" id="1_fh5gm"]
 [ext_resource type="Script" path="res://scenes/units/robo_spider/robo_spider.gd" id="1_of7uc"]
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="1_ubm1l"]
+[ext_resource type="Texture2D" uid="uid://y2s1jhw4m0hl" path="res://scenes/units/robo_spider/robo_spider.png" id="2_0q5oq"]
 [ext_resource type="PackedScene" uid="uid://bh2t45r00cxa1" path="res://scenes/components/attack_range_component/attack_range_component.tscn" id="2_cie52"]
 [ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_eahyq"]
 [ext_resource type="PackedScene" uid="uid://d67vey8nga18" path="res://scenes/managers/effects_manager/effects_manager.tscn" id="2_v5vyl"]
@@ -572,6 +573,10 @@ scale = Vector2(1.8, 1.8)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_of7uc")
+cooldown = 1.0
+mana_cost = 20.0
+unit_icon = ExtResource("2_0q5oq")
+unit_name = "robo_spider"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_v5vyl")]
 
@@ -608,7 +613,7 @@ shape = SubResource("RectangleShape2D_30q54")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ubm1l")]
 unique_name_in_owner = true
-max_health = 200.0
+max_health = 150.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_eahyq")]
 unique_name_in_owner = true

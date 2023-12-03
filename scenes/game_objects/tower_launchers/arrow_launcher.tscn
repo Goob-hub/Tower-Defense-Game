@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bibqc75j1r47"]
+[gd_scene load_steps=4 format=3 uid="uid://bibqc75j1r47"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/tower_launchers/arrow_launcher.gd" id="1_pctgm"]
+[ext_resource type="PackedScene" uid="uid://c4mph8caocrd5" path="res://scenes/game_objects/tower_arrows/basic_arrow.tscn" id="2_a3wxp"]
 [ext_resource type="Texture2D" uid="uid://d2mfj3l34s4j6" path="res://icon.svg" id="2_v6v7u"]
 
 [node name="ArrowLauncher" type="Node2D"]
 script = ExtResource("1_pctgm")
+arrow_type = ExtResource("2_a3wxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(17, -17)

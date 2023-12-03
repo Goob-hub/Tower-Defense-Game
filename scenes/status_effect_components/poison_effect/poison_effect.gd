@@ -29,7 +29,6 @@ func on_unit_dead():
 
 
 func on_duration_timeout() -> void:
-	status_effect_manager.remove_status_effect(data.name)
 	delete_self()
 
 

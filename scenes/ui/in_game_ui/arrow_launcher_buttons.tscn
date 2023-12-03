@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyx1njgeyn6o2"]
+
+[ext_resource type="PackedScene" uid="uid://6l3q4ik32nkn" path="res://scenes/ui/in_game_ui/arrow_fuel_guage.tscn" id="1_5gk36"]
+
+[node name="ArrowLauncherButtons" type="MarginContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FireTowerLauncher" type="Button" parent="HBoxContainer" groups=["start_launcher_button"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Arrows: OFF"
+
+[node name="ArrowFuelGuage" parent="HBoxContainer" instance=ExtResource("1_5gk36")]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_vertical = 1
+value = 1.0
+show_percentage = true

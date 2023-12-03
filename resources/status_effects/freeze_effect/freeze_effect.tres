@@ -1,6 +1,10 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://de8byk755q2jb"]
+[gd_resource type="Resource" script_class="FreezeEffect" load_steps=3 format=3 uid="uid://de8byk755q2jb"]
 
 [ext_resource type="Script" path="res://resources/status_effects/freeze_effect/freeze_effect_data.gd" id="1_2nt6u"]
+[ext_resource type="PackedScene" uid="uid://lsk1t2htb3sb" path="res://scenes/status_effect_components/freeze_effect/freeze_effect.tscn" id="1_vwgci"]
 
 [resource]
 script = ExtResource("1_2nt6u")
+increase_percent = 0.1
+name = "freeze"
+component = ExtResource("1_vwgci")

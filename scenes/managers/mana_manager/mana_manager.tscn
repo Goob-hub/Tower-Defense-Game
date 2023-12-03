@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqhetyvbe4c2a"]
+
+[ext_resource type="Script" path="res://scenes/managers/mana_manager/mana_manager.gd" id="1_ihpsw"]
+
+[node name="ManaManager" type="Node" groups=["mana_manager"]]
+script = ExtResource("1_ihpsw")
+
+[node name="ManaRegenTimer" type="Timer" parent="."]

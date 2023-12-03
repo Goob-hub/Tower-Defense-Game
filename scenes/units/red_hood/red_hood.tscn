@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bld6q1h4lexu0"]
+[gd_scene load_steps=23 format=3 uid="uid://bld6q1h4lexu0"]
 
 [ext_resource type="PackedScene" uid="uid://d3eadwqxjq0rs" path="res://scenes/components/health_component/health_component.tscn" id="1_60elf"]
 [ext_resource type="PackedScene" uid="uid://v5aggwtsq0gt" path="res://scenes/components/attack_component/attack_component.tscn" id="1_jgue6"]
 [ext_resource type="Script" path="res://scenes/units/red_hood/red_hood.gd" id="1_pk7qt"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="2_6n7tr"]
+[ext_resource type="Texture2D" uid="uid://s6cbfj0lu0r2" path="res://scenes/units/red_hood/red_hood_summon_image.png" id="2_58ke1"]
 [ext_resource type="PackedScene" uid="uid://bh2t45r00cxa1" path="res://scenes/components/attack_range_component/attack_range_component.tscn" id="2_ggqys"]
 [ext_resource type="PackedScene" uid="uid://d67vey8nga18" path="res://scenes/managers/effects_manager/effects_manager.tscn" id="2_uyauo"]
 [ext_resource type="Texture2D" uid="uid://sdgq4g2b74ms" path="res://scenes/units/red_hood/sci ball and chain.png" id="3_26nxo"]
@@ -395,6 +396,10 @@ _data = {
 [node name="RedHood" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_pk7qt")
+cooldown = 5.0
+mana_cost = 50.0
+unit_icon = ExtResource("2_58ke1")
+unit_name = "red_hood"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_uyauo")]
 

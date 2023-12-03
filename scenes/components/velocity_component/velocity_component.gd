@@ -8,14 +8,16 @@ var velocity: Vector2 = Vector2.ZERO
 var altering_mov_speed: float
 var altering_acceleration: float
 
+var speed_multiplier: float = 1
+
 
 func _ready():
-	altering_mov_speed = base_mov_speed
+	altering_mov_speed = base_mov_speed * speed_multiplier
 	altering_acceleration = base_acceleration
 
 
 func accelerate_in_direction(direction: Vector2):
-	var target_velocity = direction * altering_mov_speed
+	var target_velocity = direction * (altering_mov_speed * speed_multiplier)
 	#Gradually builds up to the target velocity based on the percent provided
 	velocity = velocity.lerp(target_velocity, 1 - exp(-get_process_delta_time() * altering_acceleration))
 
@@ -28,10 +30,10 @@ func move(body):
 
 
 func stop_moving():
-	altering_mov_speed = 0
+	altering_mov_speed = 0 * speed_multiplier
 	altering_acceleration = 100
 
 
 func start_moving():
-	altering_mov_speed = base_mov_speed
+	altering_mov_speed = base_mov_speed * speed_multiplier
 	altering_acceleration = base_acceleration

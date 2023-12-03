@@ -28,8 +28,8 @@ var current_range
 
 func _ready():
 	shoot_button = get_tree().get_first_node_in_group("start_launcher_button") as Button
-	projectiles_layer = get_tree().get_first_node_in_group("projectiles_layer") as Node2D
 	fuel_manager = get_tree().get_first_node_in_group("arrow_fuel_manager") as ArrowFuelManager
+	projectiles_layer = get_tree().get_first_node_in_group("projectiles_layer") as Node2D
 	player_tower = get_tree().get_first_node_in_group("player_tower") as Node2D
 	ground = get_tree().get_first_node_in_group("ground") as Node2D
 	
@@ -39,19 +39,19 @@ func _ready():
 	shoot_button.pressed.connect(on_pressed)
 	fire_rate_timer.timeout.connect(on_timer_timeout)
 	
-	set_point_positions()
+	set_curve_point_positions()
 
 
 func _process(_delta):
 	if (Input.is_action_just_pressed("aim_up") and self.rotation_degrees > -rot_amount_deg * rotation_increments):
 		self.rotation_degrees -= rot_amount_deg
-		update_point_positions("up")
+		update_curve_point_positions("up")
 	elif (Input.is_action_just_pressed("aim_down") and self.rotation_degrees < rot_amount_deg * rotation_increments):
 		self.rotation_degrees += rot_amount_deg
-		update_point_positions("down")
+		update_curve_point_positions("down")
 
 
-func on_pressed():
+func on_pressed() -> void:
 	if(!is_shooting_arrows):
 		is_shooting_arrows = true
 		shoot_button.text = "Arrows: ON"
@@ -62,11 +62,11 @@ func on_pressed():
 		fire_rate_timer.stop()
 
 
-func on_timer_timeout():
+func on_timer_timeout() -> void:
 	shoot_arrow()
 
 
-func shoot_arrow():
+func shoot_arrow() -> void:
 	var arrow = arrow_type.instantiate() as Arrow
 	
 	if(fuel_manager.can_fire_arrow(arrow.fuel_cost_per_shot)):
@@ -80,7 +80,7 @@ func shoot_arrow():
 		projectiles_layer.add_child(arrow)
 
 
-func set_point_positions():
+func set_curve_point_positions() -> void:
 	p0.global_position = sprite.global_position
 	p2.global_position = Vector2(player_tower.global_position.x + current_range, ground.global_position.y)
 	
@@ -89,7 +89,7 @@ func set_point_positions():
 	p1.global_position = mid_point
 
 
-func update_point_positions(aim_direction:String):
+func update_curve_point_positions(aim_direction:String) -> void:
 	var front_of_tower = get_tree().get_first_node_in_group("player_unit_spawn").global_position.x
 	var pos_change = (arrow_range / 2) / rotation_increments
 	var peak_offset_change = BASE_CURVE_PEAK_OFFSET / rotation_increments
