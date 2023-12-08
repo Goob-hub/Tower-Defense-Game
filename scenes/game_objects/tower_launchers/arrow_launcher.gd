@@ -1,10 +1,9 @@
 extends Node2D
 class_name ArrowLauncher
 
-const BASE_CURVE_PEAK_OFFSET: float = 100
 
 @export var arrow_type: PackedScene
-@export var arrow_range: float = 1000
+@export var arrow_range: float = 500
 @export var rot_amount_deg: int = 4
 @export var rotation_increments: int = 12
 @export var fire_rate: float = .1
@@ -23,6 +22,7 @@ var ground: Node2D
 var fuel_manager: ArrowFuelManager
 
 var is_shooting_arrows:bool = false
+var base_curve_offset: float
 var current_peak_offset = 100
 var current_range
 
@@ -35,6 +35,7 @@ func _ready():
 	
 	fire_rate_timer.wait_time = fire_rate
 	current_range = arrow_range / 2
+	base_curve_offset = arrow_range / 5
 	
 	shoot_button.pressed.connect(on_pressed)
 	fire_rate_timer.timeout.connect(on_timer_timeout)
@@ -92,7 +93,7 @@ func set_curve_point_positions() -> void:
 func update_curve_point_positions(aim_direction:String) -> void:
 	var front_of_tower = get_tree().get_first_node_in_group("player_unit_spawn").global_position.x
 	var pos_change = (arrow_range / 2) / rotation_increments
-	var peak_offset_change = BASE_CURVE_PEAK_OFFSET / rotation_increments
+	var peak_offset_change = base_curve_offset / rotation_increments
 	
 	p0.global_position = sprite.global_position
 	
@@ -108,4 +109,8 @@ func update_curve_point_positions(aim_direction:String) -> void:
 	
 	var midpoint = (p2.global_position + p0.global_position) / 2
 	midpoint.y = current_peak_offset
+	
+	if(midpoint.y >= p2.global_position.y):
+		midpoint.y = p2.global_position.y
+	
 	p1.global_position = midpoint

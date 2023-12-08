@@ -4,18 +4,22 @@ class_name UnitSummonButton
 @export var unit_scene: PackedScene
 @export var unit_icon: Texture
 
-@onready var interact_button = %InteractButton
-@onready var sprite = %UnitImage
-@onready var mana_cost_label = %ManaCost
-@onready var cooldown_timer = $CooldownTimer
+@onready var interact_button = %InteractButton as Button
+@onready var unit_image = %UnitImage as Sprite2D
+@onready var mana_cost_label = %ManaCost as Label
+@onready var cooldown_timer = %CooldownTimer as Timer
+@onready var cooldown_progress = %CooldownProgress
 
-var cooldown: float = 1
+var mana_manager: ManaManager
 var mana_cost: float = 1
-var unit_spawn_position
+var cooldown: float = 1
+var unit_spawn_position: Vector2
 
 func _ready():
 	unit_spawn_position = get_tree().get_first_node_in_group("player_unit_spawn").global_position
-	sprite.texture = unit_icon
+	mana_manager = get_tree().get_first_node_in_group("mana_manager") as ManaManager
+	
+	unit_image.texture = unit_icon
 	mana_cost_label.text = str(mana_cost)
 	cooldown_timer.wait_time = cooldown
 	
@@ -23,11 +27,19 @@ func _ready():
 	interact_button.pressed.connect(on_button_pressed)
 
 
+func _process(delta):
+	var cooldown_percent_left = cooldown_timer.time_left / cooldown_timer.wait_time
+	cooldown_progress.value = cooldown_percent_left
+
+
 func on_timer_timeout():
 	interact_button.disabled = false
 
 
 func on_button_pressed():
+	if(!mana_manager.use_mana(mana_cost)):
+		return
+	
 	var unit_instance = unit_scene.instantiate() as Unit
 	unit_instance.global_position = unit_spawn_position
 	unit_instance.unit_type = "player_unit"

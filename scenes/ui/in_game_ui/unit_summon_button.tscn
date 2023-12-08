@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgma7fjutj3f"]
+[gd_scene load_steps=6 format=3 uid="uid://bkgma7fjutj3f"]
 
 [ext_resource type="Script" path="res://scenes/ui/in_game_ui/unit_summon_button.gd" id="1_jc81y"]
+[ext_resource type="Texture2D" uid="uid://y2s1jhw4m0hl" path="res://scenes/units/robo_spider/robo_spider.png" id="2_423p7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppwxq"]
 bg_color = Color(0, 0.368627, 0.47451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lg3nr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4poi"]
+bg_color = Color(0, 0, 0, 0.443137)
 
 [node name="UnitSummonButton" type="Control"]
 custom_minimum_size = Vector2(60, 60)
@@ -20,6 +26,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ppwxq")
 [node name="UnitImage" type="Sprite2D" parent="PanelContainer"]
 unique_name_in_owner = true
 position = Vector2(30, 30)
+texture = ExtResource("2_423p7")
+offset = Vector2(2, 2)
+
+[node name="CooldownProgress" type="ProgressBar" parent="PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_lg3nr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q4poi")
+max_value = 1.0
+value = 0.5
+fill_mode = 3
+show_percentage = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(55, 0)
@@ -44,3 +64,5 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

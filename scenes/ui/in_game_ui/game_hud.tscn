@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bam4gnoua15vg"]
+[gd_scene load_steps=8 format=3 uid="uid://bam4gnoua15vg"]
 
 [ext_resource type="Script" path="res://scenes/ui/in_game_ui/game_hud.gd" id="1_2o37h"]
 [ext_resource type="PackedScene" uid="uid://cyx1njgeyn6o2" path="res://scenes/ui/in_game_ui/arrow_launcher_buttons.tscn" id="3_gwlsw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2b32mutetjfs" path="res://scenes/units/robo_spider/robo_spider.tscn" id="4_d5edu"]
 [ext_resource type="PackedScene" uid="uid://bld6q1h4lexu0" path="res://scenes/units/red_hood/red_hood.tscn" id="5_3xql0"]
 [ext_resource type="PackedScene" uid="uid://bapa1g0b8e12u" path="res://scenes/units/dark_flame/dark_flame.tscn" id="6_fgk8e"]
+[ext_resource type="PackedScene" uid="uid://d3rwapbbbb5nb" path="res://scenes/ui/in_game_ui/mana_info.tscn" id="7_tm610"]
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_2o37h")
@@ -40,17 +41,5 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="ManaInfo" type="MarginContainer" parent="MarginContainer/ImportantInformation"]
+[node name="ManaInfo" parent="MarginContainer/ImportantInformation" instance=ExtResource("7_tm610")]
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ImportantInformation/ManaInfo"]
-layout_mode = 2
-
-[node name="ManaAmount" type="Label" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer"]
-layout_mode = 2
-text = "0 / 1000"
-
-[node name="ManaIconContainer" type="PanelContainer" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer"]
-layout_mode = 2
-
-[node name="ManaIcon" type="Sprite2D" parent="MarginContainer/ImportantInformation/ManaInfo/HBoxContainer/ManaIconContainer"]

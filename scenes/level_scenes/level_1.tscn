@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfouwonbyv71l"]
+[gd_scene load_steps=13 format=3 uid="uid://bfouwonbyv71l"]
 
 [ext_resource type="Texture2D" uid="uid://bigil13r738ce" path="res://assets/backgrounds/forest_bg.png" id="1_bw2n1"]
 [ext_resource type="PackedScene" uid="uid://bam4gnoua15vg" path="res://scenes/ui/in_game_ui/game_hud.tscn" id="1_wn5bn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bld6q1h4lexu0" path="res://scenes/units/red_hood/red_hood.tscn" id="5_kimcl"]
 [ext_resource type="PackedScene" uid="uid://dhiyojierd2ns" path="res://scenes/managers/arrow_fuel_manager/arrow_fuel_manager.tscn" id="5_mc43g"]
 [ext_resource type="PackedScene" uid="uid://dxi3eghc5hi6q" path="res://scenes/game_objects/towers/player_tower/player_tower.tscn" id="6_lhkfk"]
+[ext_resource type="PackedScene" uid="uid://cqhetyvbe4c2a" path="res://scenes/managers/mana_manager/mana_manager.tscn" id="7_c0ki8"]
 [ext_resource type="PackedScene" uid="uid://8kygjcbm0e1n" path="res://scenes/game_objects/ground/ground.tscn" id="9_rfnfk"]
 
 [node name="Level1" type="Node"]
@@ -22,6 +23,8 @@ max_time_between_summons = 5.0
 min_time_between_summons = 3.0
 
 [node name="ArrowFuelManager" parent="." instance=ExtResource("5_mc43g")]
+
+[node name="ManaManager" parent="." instance=ExtResource("7_c0ki8")]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_qad64")]
 zoom = Vector2(0.805, 0.805)

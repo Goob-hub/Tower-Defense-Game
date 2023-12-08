@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d3rwapbbbb5nb"]
+
+[node name="ManaInfo" type="MarginContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ManaAmount" type="Label" parent="HBoxContainer" groups=["mana_label"]]
+layout_mode = 2
+text = "0 / 1000"
+
+[node name="ManaIconContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ManaIcon" type="Sprite2D" parent="HBoxContainer/ManaIconContainer"]

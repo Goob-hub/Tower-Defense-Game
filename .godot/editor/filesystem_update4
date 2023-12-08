@@ -1,10 +1,11 @@
-res://scenes/ui/in_game_ui/unit_summon_bar.tscn
+res://scenes/level_scenes/level_1.tscn
 res://resources/particle_effects/fire_particles.tres
 res://resources/particle_effects/explosion_particles.tres
 res://resources/tileset.tres
-res://scenes/ui/in_game_ui/game_hud.tscn
-res://scenes/ui/in_game_ui/arrow_launcher_buttons.tscn
-res://scenes/level_scenes/level_1.tscn
+res://scenes/game_objects/towers/player_tower/player_tower.tscn
 res://scenes/ui/in_game_ui/unit_summon_button.tscn
 res://scenes/managers/mana_manager/mana_manager.tscn
 res://scenes/ui/in_game_ui/unit_summon_button.gd
+res://scenes/managers/mana_manager/mana_manager.gd
+res://scenes/ui/in_game_ui/game_hud.tscn
+res://scenes/ui/in_game_ui/mana_info.tscn

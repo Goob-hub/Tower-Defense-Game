@@ -36,7 +36,6 @@ shape = SubResource("CapsuleShape2D_iak4d")
 
 [node name="ArrowLauncher" parent="." node_paths=PackedStringArray("p0", "p1", "p2") instance=ExtResource("1_burry")]
 position = Vector2(-9.5, -74.5)
-arrow_range = 800.0
 rot_amount_deg = 3
 fire_rate = 0.2
 p0 = NodePath("../p0")
@@ -60,9 +59,19 @@ shape = SubResource("CapsuleShape2D_fr3ly")
 unique_name_in_owner = true
 position = Vector2(8.5, -91)
 
+[node name="Sprite2D4" type="Sprite2D" parent="p0"]
+self_modulate = Color(1, 0.290196, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ht072")
+
 [node name="p1" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(112, -128)
+
+[node name="Sprite2D4" type="Sprite2D" parent="p1"]
+self_modulate = Color(1, 0.290196, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ht072")
 
 [node name="p2" type="Node2D" parent="."]
 unique_name_in_owner = true
