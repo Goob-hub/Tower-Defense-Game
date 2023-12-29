@@ -575,6 +575,7 @@ collision_mask = 0
 script = ExtResource("1_of7uc")
 cooldown = 1.0
 mana_cost = 20.0
+mana_when_killed = 10.0
 unit_icon = ExtResource("2_0q5oq")
 unit_name = "robo_spider"
 

@@ -2,14 +2,25 @@
 
 [node name="ManaInfo" type="MarginContainer"]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ManaAmount" type="Label" parent="HBoxContainer" groups=["mana_label"]]
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ManaIconContainer" type="PanelContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ManaIcon" type="Sprite2D" parent="HBoxContainer/HBoxContainer/ManaIconContainer"]
+
+[node name="ManaAmount" type="Label" parent="HBoxContainer/HBoxContainer" groups=["mana_amount_label"]]
 layout_mode = 2
 text = "0 / 1000"
 
-[node name="ManaIconContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="ManaLevel" type="Label" parent="HBoxContainer/HBoxContainer" groups=["mana_level_label"]]
 layout_mode = 2
+text = "Current level: 1 / 3"
 
-[node name="ManaIcon" type="Sprite2D" parent="HBoxContainer/ManaIconContainer"]
+[node name="ManaUpgradeButton" type="Button" parent="HBoxContainer" groups=["mana_upgrade_button"]]
+layout_mode = 2
+text = "Upgrade cost: 100"

@@ -20,6 +20,7 @@ func on_dead():
 	velocity_component.stop_moving()
 	attack_component.stop_attacking()
 	attack_range_component.disable_attack_range()
+	gain_mana_on_death()
 	
 	animation_player.play("death")
 

@@ -1,10 +1,12 @@
+VBoxContainer
+Label
+Button
+HBoxContainer
 ProgressBar
 MarginContainer
-HBoxContainer
 Sprite2D
 PanelContainer
 Panel
-Label
 Timer
 Node
 Node2D
@@ -19,8 +21,6 @@ AnimationPlayer
 CollisionShape2D
 Hitbox_component
 Area2D
-VBoxContainer
-Button
 CanvasLayer
 Attack
 AnimatedSprite2D

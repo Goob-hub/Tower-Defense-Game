@@ -504,6 +504,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_2e7oo")
 cooldown = 10.0
 mana_cost = 100.0
+mana_when_killed = 50.0
 unit_icon = ExtResource("2_5cq1s")
 unit_name = "dark_flame"
 

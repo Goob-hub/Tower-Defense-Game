@@ -398,6 +398,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_pk7qt")
 cooldown = 5.0
 mana_cost = 50.0
+mana_when_killed = 25.0
 unit_icon = ExtResource("2_58ke1")
 unit_name = "red_hood"
 
