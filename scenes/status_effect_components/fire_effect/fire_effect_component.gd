@@ -4,21 +4,22 @@ class_name FireEffectComponent
 @onready var time_until_damage = $TimeUntilDamage
 @onready var duration_timer = $DurationTimer
 
-var data: Dictionary
+var status_effect_data: Dictionary
 var unit_affected: Unit
 var status_effect_manager: StatusEffectManager
+var base_status_effect: StatusEffect
 
 func _ready():
 	duration_timer.timeout.connect(on_duration_timeout)
 	time_until_damage.timeout.connect(on_damage_timeout)
 	unit_affected.health_component.dead.connect(on_dead)
 	
-	if(data.size() <= 0):
-		printerr("Fire data not recieved")
+	if(status_effect_data.size() <= 0):
+		printerr("Fire status_effect_data not recieved")
 		pass
 	
-	duration_timer.wait_time = data.duration
-	time_until_damage.wait_time = data.time_until_damage
+	duration_timer.wait_time = status_effect_data.duration
+	time_until_damage.wait_time = status_effect_data.time_until_damage
 	
 	time_until_damage.start()
 	duration_timer.start()
@@ -33,7 +34,7 @@ func on_duration_timeout() -> void:
 
 
 func on_damage_timeout():
-	var damage_dealt = data.base_damage * data.stacks_applied
+	var damage_dealt = status_effect_data.base_damage * status_effect_data.stacks_applied
 	
 	if(!unit_affected.health_component):
 		printerr(unit_affected.name, " Has no health component")
@@ -44,18 +45,18 @@ func on_damage_timeout():
 
 
 func handle_duplicate_status_effect(fire_effect: FireEffect) -> void:
-	data.stacks_applied += fire_effect.stacks_applied
+	status_effect_data.stacks_applied += fire_effect.stacks_applied
 	
-	if(data.base_damage < fire_effect.base_damage):
-		data.base_damage = fire_effect.base_damage
+	if(status_effect_data.base_damage < fire_effect.base_damage):
+		status_effect_data.base_damage = fire_effect.base_damage
 	
-	if(data.duration < fire_effect.duration):
-		data.duration = fire_effect.duration
+	if(status_effect_data.duration < fire_effect.duration):
+		status_effect_data.duration = fire_effect.duration
 		duration_timer.start(fire_effect.duration)
 	else:
-		duration_timer.start(data.duration)
+		duration_timer.start(status_effect_data.duration)
 
 
 func delete_self():
-	status_effect_manager.remove_status_effect(data.name)
+	status_effect_manager.remove_status_effect(status_effect_data.name)
 	self.queue_free()

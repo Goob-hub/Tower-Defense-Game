@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6llbgm5pecd1"]
+
+[ext_resource type="Script" path="res://scenes/status_effect_components/electric_effect/electric_effect.gd" id="1_6f3ib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpkdr"]
+size = Vector2(92.25, 46)
+
+[node name="ElectricEffect" type="Node2D"]
+script = ExtResource("1_6f3ib")
+
+[node name="PulseDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[node name="PulseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="EffectArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="ElectricEffectHitbox" type="CollisionShape2D" parent="EffectArea"]
+unique_name_in_owner = true
+modulate = Color(0.619608, 0.513726, 0, 1)
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_wpkdr")
+disabled = true

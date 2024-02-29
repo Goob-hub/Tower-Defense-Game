@@ -7,10 +7,10 @@ const MAX_SPEED_PENALTY: float = .75
 
 @export var increase_percent: float
 
-var data
+var status_effect_data
 
 func set_data():
-	data = {
+	status_effect_data = {
 		"name": self.name,
 		"component": self.component,
 		"increase_percent": self.increase_percent,

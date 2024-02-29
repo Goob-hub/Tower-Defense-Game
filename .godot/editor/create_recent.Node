@@ -1,3 +1,6 @@
+Timer
+CollisionShape2D
+Area2D
 VBoxContainer
 Label
 Button
@@ -7,7 +10,6 @@ MarginContainer
 Sprite2D
 PanelContainer
 Panel
-Timer
 Node
 Node2D
 GPUParticles2D
@@ -18,9 +20,7 @@ Line2D
 RigidBody2D
 Marker2D
 AnimationPlayer
-CollisionShape2D
 Hitbox_component
-Area2D
 CanvasLayer
 Attack
 AnimatedSprite2D

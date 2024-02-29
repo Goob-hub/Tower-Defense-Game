@@ -15,17 +15,6 @@ func _ready():
 	self.limit_right = right_bound
 
 func _input(event):
-#	Figure this code for later
-#	if event.get_action_strength("move_camera_left") == 1:
-#		var new_pos = self.global_position - Vector2(0, 6)
-#		print(new_pos, global_position)
-#		self.global_position.lerp(new_pos, 1 - exp(get_process_delta_time() * 100))
-#
-#	elif event.get_action_strength("move_camera_right") == 1:
-#		var new_pos = self.global_position + Vector2(0, 6)
-#		self.global_position.lerp(new_pos, 1 - exp(get_process_delta_time() * 100))
-	
-	
 	if event.is_action("drag"):
 		if event.is_pressed():
 			mouse_start_pos = event.global_position.x

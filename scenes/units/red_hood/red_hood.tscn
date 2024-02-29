@@ -403,6 +403,7 @@ unit_icon = ExtResource("2_58ke1")
 unit_name = "red_hood"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_uyauo")]
+unique_name_in_owner = true
 
 [node name="AttackRangeComponent" parent="." node_paths=PackedStringArray("attack_range_shape") instance=ExtResource("2_ggqys")]
 unique_name_in_owner = true
@@ -440,7 +441,7 @@ base_acceleration = 20.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_60elf")]
 unique_name_in_owner = true
-max_health = 300.0
+max_health = 1500.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

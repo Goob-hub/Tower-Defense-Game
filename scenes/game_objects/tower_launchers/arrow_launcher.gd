@@ -37,7 +37,7 @@ func _ready():
 	current_range = arrow_range / 2
 	base_curve_offset = arrow_range / 5
 	
-	shoot_button.pressed.connect(on_pressed)
+	shoot_button.pressed.connect(shoot_arrows)
 	fire_rate_timer.timeout.connect(on_timer_timeout)
 	
 	set_curve_point_positions()
@@ -50,9 +50,12 @@ func _process(_delta):
 	elif (Input.is_action_just_pressed("aim_down") and self.rotation_degrees < rot_amount_deg * rotation_increments):
 		self.rotation_degrees += rot_amount_deg
 		update_curve_point_positions("down")
+	
+	if(Input.is_action_just_pressed("fire_arrows")):
+		shoot_arrows()
 
 
-func on_pressed() -> void:
+func shoot_arrows() -> void:
 	if(!is_shooting_arrows):
 		is_shooting_arrows = true
 		shoot_button.text = "Arrows: ON"

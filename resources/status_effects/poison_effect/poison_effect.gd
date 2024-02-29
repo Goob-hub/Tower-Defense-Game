@@ -6,10 +6,10 @@ class_name PoisonEffect
 @export var time_until_damage: float
 @export var stack_duration_potency: float = .1
 
-var data
+var status_effect_data
 
 func set_data():
-	data = {
+	status_effect_data = {
 		"name": self.name,
 		"component": self.component,
 		"damage": self.damage,

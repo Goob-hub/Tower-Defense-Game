@@ -6,10 +6,10 @@ class_name FireEffect
 @export var stacks_applied: float
 @export var time_until_damage: float
 
-var data = {}
+var status_effect_data = {}
 
 func set_data():
-	data = {
+	status_effect_data = {
 		"name": self.name,
 		"component": self.component,
 		"duration": self.duration,

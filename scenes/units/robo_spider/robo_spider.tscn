@@ -580,6 +580,7 @@ unit_icon = ExtResource("2_0q5oq")
 unit_name = "robo_spider"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_v5vyl")]
+unique_name_in_owner = true
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("4_1adkq")]
 unique_name_in_owner = true
@@ -614,7 +615,7 @@ shape = SubResource("RectangleShape2D_30q54")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ubm1l")]
 unique_name_in_owner = true
-max_health = 150.0
+max_health = 750.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_eahyq")]
 unique_name_in_owner = true

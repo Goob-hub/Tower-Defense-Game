@@ -1,3 +1,5 @@
+res://resources/status_effects/electric_effect
+res://scenes/status_effect_components/electric_effect
 res://scenes/ui/in_game_ui
 res://scenes/managers/mana_manager
 res://scenes/status_effect_components/freeze_effect
@@ -18,8 +20,6 @@ C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Ball an
 res://scenes/managers/arrow_fuel_manager
 res://scenes/game_objects/ground
 res://scenes/game_objects/tower_launchers
-res://scenes/game_objects/tower_arrows
-res://scenes/managers/enemy_manager
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Robo-spider
 C:/Users/soliz/Desktop/2D Assets/2d tower defense rougelike/Enemy Assets/Dark-flame
 C:/Users/soliz/Desktop/2D Assets/Sci-fi DARK Edition/DARK Edition/Sprites

@@ -5,7 +5,7 @@ class_name ManaManager
 @export var mana_regen_rate: float = .5
 @export var mana_regen_amount: float = 5
 @export var starting_mana_amount: float = 0
-@export var starting_mana_level: int = 1
+@export var starting_mana_level: int = 0
 @export var max_mana_level: int = 3
 @export var upgrade_multiplier: float = .25
 @export var upgrade_cost: float = 150
@@ -13,7 +13,7 @@ class_name ManaManager
 @onready var mana_regen_timer: Timer = $ManaRegenTimer
 
 var cur_mana_amount: float
-var cur_mana_level: float = 1
+var cur_mana_level: float = 0
 var stat_multiplier: float = 1
 
 #Base stats
@@ -46,6 +46,11 @@ func _ready():
 	_update_mana_level_label()
 
 
+func _process(_delta):
+	if(Input.is_action_just_pressed("upgrade_mana")):
+		level_up_mana()
+
+
 func use_mana(mana_used: float) -> bool:
 	if(cur_mana_amount < mana_used):
 		return false
@@ -62,18 +67,14 @@ func gain_mana(mana_amount: float) -> void:
 
 
 func level_up_mana() -> void:
-	if(cur_mana_level >= max_mana_level or cur_mana_amount < upgrade_cost):
+	if(cur_mana_level >= max_mana_level or !use_mana(upgrade_cost)):
 		return
-	
-	print(cur_mana_level, ":", max_mana_level)
-	print(cur_mana_amount, ":", max_mana)
 	
 	stat_multiplier += upgrade_multiplier
 	upgrade_cost += roundf(upgrade_cost * upgrade_multiplier)
 	
 	cur_mana_level += 1
 	
-	use_mana(upgrade_cost)
 	_update_mana_stats()
 	_update_mana_amount_label()
 	_update_mana_level_label()

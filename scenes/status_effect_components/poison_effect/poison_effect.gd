@@ -4,8 +4,9 @@ class_name PoisonEffectComponent
 @onready var time_until_damage: Timer = $TimeUntilDamage
 @onready var duration_timer: Timer = $Duration
 
-var data: Dictionary = {}
+var status_effect_data: Dictionary = {}
 var status_effect_manager: StatusEffectManager
+var base_status_effect: StatusEffect
 var unit_affected: Unit
 
 func _ready():
@@ -13,12 +14,12 @@ func _ready():
 	duration_timer.timeout.connect(on_duration_timeout)
 	unit_affected.health_component.dead.connect(on_unit_dead)
 	
-	if(data.size() <= 0):
-		printerr("Poison data not recieved")
+	if(status_effect_data.size() <= 0):
+		printerr("Poison status_effect_data not recieved")
 		pass
 	
-	time_until_damage.wait_time = data.time_until_damage
-	duration_timer.wait_time = data.duration
+	time_until_damage.wait_time = status_effect_data.time_until_damage
+	duration_timer.wait_time = status_effect_data.duration
 	
 	duration_timer.start()
 	time_until_damage.start()
@@ -38,7 +39,7 @@ func on_damage_timeout() -> void:
 		delete_self()
 		return
 	
-	unit_affected.health_component.damage(data.damage)
+	unit_affected.health_component.damage(status_effect_data.damage)
 
 
 func handle_duplicate_status_effect(poison_effect: PoisonEffect) -> void:
@@ -47,14 +48,14 @@ func handle_duplicate_status_effect(poison_effect: PoisonEffect) -> void:
 	duration_timer.wait_time = new_duration_time
 	duration_timer.start()
 	
-	if(data.damage < poison_effect.damage):
-		data.damage = poison_effect.damage
+	if(status_effect_data.damage < poison_effect.damage):
+		status_effect_data.damage = poison_effect.damage
 	
-	if(data.time_until_damage < poison_effect.time_until_damage):
-		data.time_until_damage = poison_effect.time_until_damage
+	if(status_effect_data.time_until_damage < poison_effect.time_until_damage):
+		status_effect_data.time_until_damage = poison_effect.time_until_damage
 		time_until_damage.wait_time = poison_effect.time_until_damage
 
 
 func delete_self():
-	status_effect_manager.remove_status_effect(data.name)
+	status_effect_manager.remove_status_effect(status_effect_data.name)
 	self.queue_free()

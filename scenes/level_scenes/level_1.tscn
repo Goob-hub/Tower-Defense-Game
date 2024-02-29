@@ -25,9 +25,10 @@ min_time_between_summons = 3.0
 [node name="ArrowFuelManager" parent="." instance=ExtResource("5_mc43g")]
 
 [node name="ManaManager" parent="." instance=ExtResource("7_c0ki8")]
+starting_mana_amount = 1000.0
 
 [node name="GameCamera" parent="." instance=ExtResource("3_qad64")]
-zoom = Vector2(0.805, 0.805)
+zoom = Vector2(0.7, 0.7)
 
 [node name="BackgroundLayer" type="Node2D" parent="."]
 

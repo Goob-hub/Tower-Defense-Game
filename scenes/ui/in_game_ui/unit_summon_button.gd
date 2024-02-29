@@ -13,6 +13,7 @@ class_name UnitSummonButton
 var mana_manager: ManaManager
 var mana_cost: float = 1
 var cooldown: float = 1
+var unit_ready: bool = true
 var unit_spawn_position: Vector2
 
 func _ready():
@@ -24,20 +25,21 @@ func _ready():
 	cooldown_timer.wait_time = cooldown
 	
 	cooldown_timer.timeout.connect(on_timer_timeout)
-	interact_button.pressed.connect(on_button_pressed)
+	interact_button.pressed.connect(summon_unit)
 
 
-func _process(delta):
+func _process(_delta):
 	var cooldown_percent_left = cooldown_timer.time_left / cooldown_timer.wait_time
 	cooldown_progress.value = cooldown_percent_left
 
 
 func on_timer_timeout():
+	unit_ready = true
 	interact_button.disabled = false
 
 
-func on_button_pressed():
-	if(!mana_manager.use_mana(mana_cost)):
+func summon_unit():
+	if(!mana_manager.use_mana(mana_cost) or unit_ready == false):
 		return
 	
 	var unit_instance = unit_scene.instantiate() as Unit
@@ -46,4 +48,5 @@ func on_button_pressed():
 	get_tree().get_first_node_in_group("player_units_layer").add_child(unit_instance)
 	
 	interact_button.disabled = true
+	unit_ready = false
 	cooldown_timer.start()

@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bkn6f24li28ei" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_1ea0v"]
 [ext_resource type="Texture2D" uid="uid://nvnkfaab8c4l" path="res://scenes/units/dark_flame/flame_unit_dark.png" id="3_2frje"]
 [ext_resource type="PackedScene" uid="uid://bh2t45r00cxa1" path="res://scenes/components/attack_range_component/attack_range_component.tscn" id="3_iw8wr"]
-[ext_resource type="Resource" uid="uid://cog2bd3qcwka" path="res://resources/status_effects/fire_effect/fire_effect.tres" id="4_3ddpk"]
 [ext_resource type="PackedScene" uid="uid://dq474u3ygshqm" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_7k51b"]
+[ext_resource type="Resource" uid="uid://cw1rg2rsi7kd2" path="res://resources/status_effects/electric_effect/electric_effect.tres" id="6_gcwf8"]
 [ext_resource type="PackedScene" uid="uid://c4f50a4y7neae" path="res://scenes/components/health_bar_component/health_bar_component.tscn" id="11_ggja5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cch5y"]
@@ -509,13 +509,14 @@ unit_icon = ExtResource("2_5cq1s")
 unit_name = "dark_flame"
 
 [node name="StatusEffectManager" parent="." instance=ExtResource("2_hwvga")]
+unique_name_in_owner = true
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attack_shape") instance=ExtResource("2_lgo63")]
 unique_name_in_owner = true
 attack_shape = NodePath("Attack")
 damage = 5.0
 attacks_per_second = 7.0
-status_effects = Array[Resource("res://classes/status_effect.gd")]([ExtResource("4_3ddpk")])
+status_effects = Array[Resource("res://classes/status_effect.gd")]([ExtResource("6_gcwf8")])
 
 [node name="Attack" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(35.5, -11)
@@ -543,7 +544,7 @@ shape = SubResource("RectangleShape2D_0vb0n")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_i1k7t")]
 unique_name_in_owner = true
-max_health = 150.0
+max_health = 750.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_1ea0v")]
 unique_name_in_owner = true

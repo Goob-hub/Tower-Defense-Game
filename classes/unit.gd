@@ -13,6 +13,7 @@ class_name Unit
 @onready var velocity_component = $%VelocityComponent as VelocityComponent
 @onready var health_component = $%HealthComponent as HealthComponent
 @onready var animation_player = $%AnimationPlayer as AnimationPlayer
+@onready var status_effects_manager = $%StatusEffectManager as StatusEffectManager
 
 var unit_type
 var direction

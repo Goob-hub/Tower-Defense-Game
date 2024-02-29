@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ElectricEffect" load_steps=3 format=3 uid="uid://cw1rg2rsi7kd2"]
+
+[ext_resource type="Script" path="res://resources/status_effects/electric_effect/electric_effect.gd" id="1_4s85v"]
+[ext_resource type="PackedScene" uid="uid://c6llbgm5pecd1" path="res://scenes/status_effect_components/electric_effect/electric_effect.tscn" id="1_76les"]
+
+[resource]
+script = ExtResource("1_4s85v")
+chance_to_apply = 0.25
+base_damage = 200.0
+total_pulses = 3.0
+time_until_pulse = 1.0
+name = "electric"
+component = ExtResource("1_76les")

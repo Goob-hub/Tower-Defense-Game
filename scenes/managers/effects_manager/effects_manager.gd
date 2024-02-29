@@ -27,13 +27,14 @@ func on_unit_dead():
 func _add_status_effect_data(status_effect: StatusEffect) -> void:
 	var status_effect_component = status_effect.component.instantiate()
 	
-	cur_status_effects[status_effect.name] = status_effect.data
+	cur_status_effects[status_effect.name] = status_effect.status_effect_data
 	
-	status_effect_component.data = status_effect.data
+	status_effect_component.status_effect_data = status_effect.status_effect_data
 	status_effect_component.unit_affected = unit_affected
 	status_effect_component.status_effect_manager = self
+	status_effect_component.base_status_effect = status_effect
 	
-	self.add_child(status_effect_component)
+	self.call_deferred("add_child", status_effect_component)
 
 
 func _handle_duplicate_status_effects(status_effect: StatusEffect) -> void:
@@ -46,3 +47,6 @@ func _handle_duplicate_status_effects(status_effect: StatusEffect) -> void:
 		
 		if(status_effect_component is FreezeEffectComponent and status_effect is FreezeEffect):
 			status_effect_component.handle_duplicate_status_effect(status_effect as FreezeEffect)
+		
+		if(status_effect_component is ElectricEffectComponent and status_effect is ElectricEffect):
+			pass
