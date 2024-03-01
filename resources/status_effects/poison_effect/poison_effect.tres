@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_12a5s")
-damage = 10.0
+damage = 30.0
 duration = 10.0
 time_until_damage = 1.0
 stack_duration_potency = 0.1
 name = "poison"
 component = ExtResource("1_6kwva")
+chance_to_apply = 0.5

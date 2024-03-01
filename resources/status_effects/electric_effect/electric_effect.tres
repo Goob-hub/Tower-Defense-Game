@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_4s85v")
-chance_to_apply = 0.25
-base_damage = 200.0
-total_pulses = 3.0
+base_damage = 150.0
+total_pulses = 4.0
 time_until_pulse = 1.0
 name = "electric"
 component = ExtResource("1_76les")
+chance_to_apply = 0.25

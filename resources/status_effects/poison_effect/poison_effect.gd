@@ -15,5 +15,6 @@ func set_data():
 		"damage": self.damage,
 		"duration": self.duration,
 		"stack_duration_potency": self.stack_duration_potency,
-		"time_until_damage": self.time_until_damage
+		"time_until_damage": self.time_until_damage,
+		"chance_to_apply": self.chance_to_apply
 	}

@@ -1,7 +1,6 @@
 extends StatusEffect
 class_name ElectricEffect
 
-@export var chance_to_apply: float
 @export var base_damage: float
 @export var total_pulses: float
 @export var time_until_pulse: float
@@ -14,7 +13,8 @@ func set_data():
 		"component": self.component,
 		"base_damage": self.base_damage,
 		"total_pulses": self.total_pulses,
-		"time_until_pulse": self.time_until_pulse
+		"time_until_pulse": self.time_until_pulse,
+		"chance_to_apply": self.chance_to_apply
 	}
 
 func change_effect_data(new_effect_data: Dictionary):

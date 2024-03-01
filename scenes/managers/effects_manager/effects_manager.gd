@@ -10,10 +10,22 @@ func _ready():
 
 func handle_status_effects(status_effects: Array[StatusEffect]) -> void:
 	for status_effect in status_effects:
-		if(!cur_status_effects.has(status_effect.name)):
+		if(!cur_status_effects.has(status_effect.name) and roll_effect_chance(status_effect)):
 			_add_status_effect_data(status_effect as StatusEffect)
 		else:
 			_handle_duplicate_status_effects(status_effect)
+
+
+func roll_effect_chance(status_effect: StatusEffect) -> bool:
+	if(status_effect.chance_to_apply >= 1):
+		return true
+	
+	var rand_num = randf()
+	
+	if(rand_num > status_effect.chance_to_apply):
+		return false
+	else:
+		return true
 
 
 func remove_status_effect(status_effect_name: String) -> void:

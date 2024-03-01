@@ -16,5 +16,6 @@ func set_data():
 		"increase_percent": self.increase_percent,
 		"DECREASE_PERCENT": self.DECREASE_PERCENT,
 		"DECREASE_INTERVAL": self.DECREASE_INTERVAL,
-		"MAX_SPEED_PENALTY": self.MAX_SPEED_PENALTY
+		"MAX_SPEED_PENALTY": self.MAX_SPEED_PENALTY,
+		"chance_to_apply": self.chance_to_apply
 	}

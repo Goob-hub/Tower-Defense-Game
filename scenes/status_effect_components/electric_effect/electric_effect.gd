@@ -73,6 +73,7 @@ func _on_area_entered(other_area: Area2D) -> void:
 	if(pulses_remaining > 1):
 		var new_effect_data = status_effect_data
 		new_effect_data.total_pulses = pulses_remaining
+		new_effect_data.chance_to_apply = 1
 		
 		base_status_effect.status_effect_data = new_effect_data
 		

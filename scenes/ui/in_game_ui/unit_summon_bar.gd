@@ -32,5 +32,5 @@ func _input(event):
 	#Subtracting 1 from the value to get the correct item from an array
 	var event_number = event.as_text().to_int() - 1
 	
-	if(event_number <= unit_buttons.size() - 1 and event_number >= 0):
+	if(event_number <= unit_buttons.size() - 1 and event_number >= 0 and unit_buttons[event_number].unit_ready):
 		unit_buttons[event_number].summon_unit()
